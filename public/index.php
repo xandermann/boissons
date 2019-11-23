@@ -1,7 +1,5 @@
 <?php
 
-$hello = 'World !';
+require('../src/Donnees.inc.php');
 
-?>
-
-<h1>Hello <?= $hello ?></h1>
+var_dump($Recettes);
