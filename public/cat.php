@@ -20,7 +20,7 @@ $hierarchie = $Hierarchie[$categorie] ?? header('Location: cat.php?categorie=Ali
 	<li><?= $nom ?>
 		<ul>
 			<?php foreach($h as $id => $categorie): ?>
-				<li>ID:<?= $id ?> - <?= $categorie ?></li>
+				<li>ID:<?= $id ?> - <?= $categorie ?> <a href="cat.php?categorie=<?= $categorie ?>">LIEN</a></li>
 			<?php endforeach ?>
 		</ul>
 	</li>
