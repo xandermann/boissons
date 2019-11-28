@@ -1,55 +1,15 @@
-<?php
-
-require('../src/Donnees.inc.php');
-
-?>
-
-<?php
-$categorie = $_GET['categorie'] ?? 'Aliment';
-$hierarchie = $Hierarchie[$categorie] ?? header('Location: cat.php?categorie=Aliment');
-?>
-
-<h1><?= $categorie ?></h1>
-
-
 <ul>
-<?php foreach($hierarchie as $nom => $h): ?>
-	<li><?= $nom ?>
-		<ul>
-			<?php foreach($h as $id => $categorie): ?>
-				<li>ID:<?= $id ?> - <?= $categorie ?> <a href="cat.php?categorie=<?= $categorie ?>">LIEN</a></li>
-			<?php endforeach ?>
-		</ul>
-	</li>
-<?php endforeach ?>
+	<li><a href="index.php?page=accueil">Page accueil</a></li>
+	<li><a href="index.php?page=inscription">Inscription</a></li>
+	<li><a href="index.php?page=connexion">Connexion</a></li>
 </ul>
 
-<?php
-die;
+<?php require('../src/routes.php') ?>
 
-?>
-<?= var_dump($Hierarchie[$categorie] ?? '') ?>
+<hr>
 
 
-<ul>
-    <?php foreach($Hierarchie as $nom => $hierarchie): ?>
-        <li>Le nom est: "<?= $nom ?>"</li>
-        <li>Sous catégorie:
-            <ul>
-                <?php foreach($hierarchie['sous-categorie'] ?? [] as $sousCategorie): ?>
-                    <li><?= $sousCategorie ?></li>
-                <?php endforeach ?>
-            </ul>
-        </li>
 
-        <li>Super catégorie:
-            <ul>
-                <?php foreach($hierarchie['super-categorie'] ?? [] as $superCategorie): ?>
-                    <li><?= $superCategorie ?></li>
-                <?php endforeach ?>
-            </ul>
-        </li>
+<hr>
 
-        <hr>
-    <?php endforeach ?>
-</ul>
+
