@@ -4,34 +4,15 @@ require('../src/Donnees.inc.php');
 
 ?>
 
-<h1><?= $_GET['categorie'] ?></h1>
+<!--
+<ul>
+    <?php foreach($Recettes as $r): ?>
+        <li><?php var_dump($r) ?></li>
+    <?php endforeach ?>
+</ul>
+-->
 
 <hr>
-
-<?php
-$categorie = $_GET['categorie'] ?? 'Aliment';
-$hierarchie = $Hierarchie[$categorie] ?? header('Location: cat.php?categorie=Aliment');
-?>
-
-
-
-<ul>
-<?php foreach($hierarchie as $nom => $h): ?>
-	<li><?= $nom ?>
-		<ul>
-			<?php foreach($h as $id => $categorie): ?>
-				<li>ID:<?= $id ?> - <?= $categorie ?> <a href="cat.php?categorie=<?= $categorie ?>">LIEN</a></li>
-			<?php endforeach ?>
-		</ul>
-	</li>
-<?php endforeach ?>
-</ul>
-
-<?php
-die;
-
-?>
-<?= var_dump($Hierarchie[$categorie] ?? '') ?>
 
 
 <ul>
