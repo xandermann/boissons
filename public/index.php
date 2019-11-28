@@ -4,15 +4,12 @@ require('../src/Donnees.inc.php');
 
 ?>
 
-<h1><?= $_GET['categorie'] ?></h1>
-
-<hr>
-
 <?php
 $categorie = $_GET['categorie'] ?? 'Aliment';
 $hierarchie = $Hierarchie[$categorie] ?? header('Location: cat.php?categorie=Aliment');
 ?>
 
+<h1><?= $categorie ?></h1>
 
 
 <ul>
