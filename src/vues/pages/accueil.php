@@ -1,10 +1,6 @@
 <?php
 
-require('../src/Donnees.inc.php');
 
-
-$categorie = $_GET['categorie'] ?? 'Aliment';
-$hierarchie = $Hierarchie[$categorie] ?? header('Location: index.php?page=accueil&categorie=Aliment');
 ?>
 
 <h1><?= $categorie ?></h1>

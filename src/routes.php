@@ -4,7 +4,14 @@ $page = $_GET['page'] ?? header('Location: index.php?page=accueil');
 
 switch($page) {
 	case 'accueil':
-		require('vues/accueil.php');
+
+		/* Code à mettre dans un controller */
+		require('../src/modeles/Donnees.inc.php');
+		$categorie = $_GET['categorie'] ?? 'Aliment';
+		$hierarchie = $Hierarchie[$categorie] ?? header('Location: index.php?page=accueil&categorie=Aliment');
+		/* Fin controller */
+
+		require('vues/pages/accueil.php');
 		break;
 
 	case 'connexion':
