@@ -6,7 +6,7 @@ use App\Controllers\Controller;
 
 class AccueilController extends Controller {
 
-	public function accueil() {
+	public function index() {
 
 		require('../src/Modeles/Donnees.inc.php');
 
@@ -19,10 +19,6 @@ class AccueilController extends Controller {
 		}); // On va trier les recettes ici
 
 		return $this->render('accueil', compact('categorie', 'hierarchie', 'recettes'));
-	}
-
-	public function recettesPreferees() {
-		return $this->render('recettesPreferees');
 	}
 
 }
