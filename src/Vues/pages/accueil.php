@@ -1,5 +1,7 @@
 <h1><?= $categorie ?></h1>
 
+<p>Todo: Afficher le chemin</p>
+
 <?php if(array_key_exists('super-categorie', $hierarchie)): ?>
 	<h2>Super catégorie</h2>
 	<ul>
