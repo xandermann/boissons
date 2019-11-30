@@ -31,8 +31,8 @@
 
 <h2>Liste de toutes les recettes avec <?= $categorie ?></h2>
 
-<?php foreach($recettes as $recette): ?>
-	<h3><?= $recette['titre'] ?></h3>
+<?php foreach($recettes as $id => $recette): ?>
+	<h3><?= $recette['titre'] ?> <a href="index.php?page=ajouter_recette&id=<?= $id ?>">Ajouter cette recette</a></h3>
 	<p><?= $recette['ingredients'] ?></p>
 	<p><?= $recette['preparation'] ?></p>
 
@@ -43,8 +43,7 @@
 	</ul>
 
 	<?php
-	$file = "Photos/$recette[titre].jpg";
-	$file = str_replace(" ", "_", $file);
+	$file = str_replace(" ", "_", "Photos/$recette[titre].jpg");
 
 	if(file_exists($file)): ?>
 		<img src="<?= $file ?>" alt="<?= $recette['titre'] ?>">

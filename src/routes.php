@@ -9,7 +9,7 @@ switch($page) {
 		break;
 
 	// Recettes
-	case 'recettes_preferees':
+	case 'recette':
 		(new App\Controllers\RecetteController)->index();
 		break;
 
