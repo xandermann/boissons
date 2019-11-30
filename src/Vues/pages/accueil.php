@@ -6,6 +6,7 @@
 	<h2>Super catégorie</h2>
 	<ul>
 		<?php foreach($hierarchie['super-categorie'] as $superCategorie): ?>
+			<?php $superCategorie = str_replace(" ", "_", $superCategorie) ?>
 			<li><a href="index.php?page=accueil&categorie=<?= $superCategorie ?>"><?= $superCategorie ?></a></li>
 		<?php endforeach; ?>
 	</ul>
@@ -17,6 +18,7 @@
 
 	<ul>
 		<?php foreach($hierarchie['sous-categorie'] as $id => $sousCategorie): ?>
+			<?php $sousCategorie = str_replace(" ", "_", $sousCategorie) ?>
 			<li><a href="index.php?page=accueil&categorie=<?= $sousCategorie ?>"><?= $id ?> - <?= $sousCategorie ?></a></li>
 		<?php endforeach ?>
 	</ul>
