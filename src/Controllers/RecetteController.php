@@ -11,10 +11,11 @@ class RecetteController extends Controller {
 
 		$recettes = [];
 		foreach($_SESSION['recettes'] as $recette_id) {
-			array_push($recettes, $Recettes[$recette_id]);
+			$recettes[$recette_id] = $Recettes[$recette_id];
+			//array_push($recettes, $Recettes[$recette_id]);
 		}
 
-		return $this->render('recettes', compact('recettes'));
+		return $this->render('recette', compact('recettes'));
 	}
 
 	public function ajouter() {
@@ -29,6 +30,17 @@ class RecetteController extends Controller {
 		array_push($_SESSION['recettes'], $id); // A verifier si elle existe déjà
 
 		$this->redirect('index.php?page=accueil', $this->SUCCES, 'La recette est bien ajoutée !');
+	}
+
+	public function supprimer() {
+		$id = $_GET['id']; // A verifier
+
+		// Supprime la cle
+		$_SESSION['recettes'] = array_filter($_SESSION['recettes'], function($recette) use ($id) {
+			return $recette != $id;
+		});
+
+		$this->redirect('index.php?page=recette', $this->SUCCES, 'La recette a ete supprimee');
 	}
 
 }

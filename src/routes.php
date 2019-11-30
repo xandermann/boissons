@@ -17,6 +17,10 @@ switch($page) {
 		(new App\Controllers\RecetteController)->ajouter();
 		break;
 
+	case 'supprimer_recette':
+		(new App\Controllers\RecetteController)->supprimer();
+		break;
+
 	// Connexion
 	case 'connexion':
 		(new App\Controllers\UtilisateurController)->connexion();
