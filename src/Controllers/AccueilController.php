@@ -11,6 +11,7 @@ class AccueilController extends Controller {
 		require('../src/Modeles/Donnees.inc.php');
 
 		$categorie = $_GET['categorie'] ?? 'Aliment';
+		$categorie = str_replace('_', ' ', $categorie);
 		$hierarchie = $Hierarchie[$categorie] ?? header('Location: index.php?page=accueil&categorie=Aliment');
 
 		$recettes = array_filter($Recettes, function($recette) use ($categorie) {
