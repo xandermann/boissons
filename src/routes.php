@@ -4,7 +4,7 @@ $page = $_GET['page'] ?? header('Location: index.php?page=accueil');
 
 switch($page) {
 	case 'accueil':
-		(new App\Controllers\AccueilController())->index();
+		(new App\Controllers\AccueilController())->accueil();
 		break;
 
 	case 'connexion':

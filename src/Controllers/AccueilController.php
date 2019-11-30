@@ -6,11 +6,7 @@ use App\Controllers\Controller;
 
 class AccueilController extends Controller {
 
-	public function __construct() {
-
-	}
-
-	public function index() {
+	public function accueil() {
 
 		require('../src/Modeles/Donnees.inc.php');
 
