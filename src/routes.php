@@ -8,11 +8,11 @@ switch($page) {
 		break;
 
 	case 'connexion':
-		echo 'Connexion ici';
+		(new App\Controllers\UtilisateurController())->connexion();
 		break;
 
 	case 'inscription':
-		echo 'Inscription ici';
+		(new App\Controllers\UtilisateurController())->connexion();
 		break;
 
 	default:

@@ -1,11 +1,13 @@
 <h1><?= $categorie ?></h1>
 
-<h2>Revenir en arrière</h2>
-<ul>
-	<?php foreach($hierarchie['super-categorie'] as $superCategorie): ?>
-		<li><?= $superCategorie ?></li>
-	<?php endforeach; ?>
-</ul>
+<?php if(array_key_exists('super-categorie', $hierarchie)): ?>
+	<h2>Revenir en arrière</h2>
+	<ul>
+		<?php foreach($hierarchie['super-categorie'] ?? [] as $superCategorie): ?>
+			<li><?= $superCategorie ?></li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif ?>
 
 <h2>Voir un aliment plus précis</h2>
 <ul>
