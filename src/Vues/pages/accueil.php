@@ -3,8 +3,8 @@
 <?php if(array_key_exists('super-categorie', $hierarchie)): ?>
 	<h2>Super catégorie</h2>
 	<ul>
-		<?php foreach($hierarchie['super-categorie'] as $categorie): ?>
-			<li><a href="index.php?page=accueil&categorie=<?= $categorie ?>"><?= $categorie ?></a></li>
+		<?php foreach($hierarchie['super-categorie'] as $superCategorie): ?>
+			<li><a href="index.php?page=accueil&categorie=<?= $superCategorie ?>"><?= $superCategorie ?></a></li>
 		<?php endforeach; ?>
 	</ul>
 <?php endif ?>
@@ -14,8 +14,8 @@
 	<h2>Sous cagégorie</h2>
 
 	<ul>
-		<?php foreach($hierarchie['sous-categorie'] as $id => $categorie): ?>
-			<li><a href="index.php?page=accueil&categorie=<?= $categorie ?>"><?= $id ?> - <?= $categorie ?></a></li>
+		<?php foreach($hierarchie['sous-categorie'] as $id => $sousCategorie): ?>
+			<li><a href="index.php?page=accueil&categorie=<?= $sousCategorie ?>"><?= $id ?> - <?= $sousCategorie ?></a></li>
 		<?php endforeach ?>
 	</ul>
 <?php endif ?>
@@ -23,7 +23,7 @@
 
 <hr><hr><hr><hr><hr>
 
-<h2>Liste de toutes les recettes</h2>
+<h2>Liste de toutes les recettes avec <?= $categorie ?></h2>
 
 
 <?php foreach($recettes as $recette): ?>
