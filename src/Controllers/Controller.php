@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 class Controller {
 
+	protected $SUCCES = 0;
+	protected $ERREUR = 1;
+
 	/**
 	 * @param  string
 	 * @param  array
@@ -22,6 +25,11 @@ class Controller {
 
 		// On rend le layout
 		require('../src/Vues/app.php');
+	}
+
+	public function redirect(string $lien, int $status = null, string $message = null) {
+		// Ajouter status et message
+		header("Location: $lien");
 	}
 
 }

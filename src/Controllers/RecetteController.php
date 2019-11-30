@@ -13,10 +13,15 @@ class RecetteController extends Controller {
 	public function ajouter() {
 		require('../src/Modeles/Donnees.inc.php');
 		$id = $_GET['id']; // A valider
-		$recette = $Recettes[$id]; // A verifier
+		$recette = $Recettes[$id]; // A verifier si la recette existe
 
-		var_dump($recette);
-		echo "TODO: A ajouter aux recettes";
+		if(!isset($_SESSION['recettes'])) {
+			$_SESSION['recettes'] = [];
+		}
+
+		array_push($_SESSION['recettes'], $id); // A verifier si elle existe déjà
+
+		$this->redirect('index.php?page=accueil', $this->SUCCES, 'La recette est bien ajoutée !');
 	}
 
 }
