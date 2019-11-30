@@ -9,6 +9,7 @@
 		<li><a href="index.php?page=accueil">Page accueil</a></li>
 		<li><a href="index.php?page=inscription">Inscription</a></li>
 		<li><a href="index.php?page=connexion">Connexion</a></li>
+		<li><a href="index.php?page=recettes_preferees">Mes recettes preferees</a></li>
 	</ul>
 
 	<?= $content ?>

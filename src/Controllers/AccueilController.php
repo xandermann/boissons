@@ -21,4 +21,8 @@ class AccueilController extends Controller {
 		return $this->render('accueil', compact('categorie', 'hierarchie', 'recettes'));
 	}
 
+	public function recettesPreferees() {
+		return $this->render('recettesPreferees');
+	}
+
 }

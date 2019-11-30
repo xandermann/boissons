@@ -7,6 +7,10 @@ switch($page) {
 		(new App\Controllers\AccueilController())->accueil();
 		break;
 
+	case 'recettes_preferees':
+		(new App\Controllers\AccueilController())->recettesPreferees();
+		break;
+
 	case 'connexion':
 		(new App\Controllers\UtilisateurController())->connexion();
 		break;
