@@ -25,7 +25,6 @@
 
 <h2>Liste de toutes les recettes avec <?= $categorie ?></h2>
 
-
 <?php foreach($recettes as $recette): ?>
 	<h3><?= $recette['titre'] ?></h3>
 	<p><?= $recette['ingredients'] ?></p>
@@ -36,6 +35,14 @@
 			<li><?= $ingredient ?></li>
 		<?php endforeach ?>
 	</ul>
+
+	<?php
+	$file = "Photos/$recette[titre].jpg";
+	$file = str_replace(" ", "_", $file);
+
+	if(file_exists($file)): ?>
+		<img src="<?= $file ?>" alt="<?= $recette['titre'] ?>">
+	<?php endif ?>
 
 	<hr>
 <?php endforeach ?>
