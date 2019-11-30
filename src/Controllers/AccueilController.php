@@ -17,7 +17,9 @@ class AccueilController extends Controller {
 		$categorie = $_GET['categorie'] ?? 'Aliment';
 		$hierarchie = $Hierarchie[$categorie] ?? header('Location: index.php?page=accueil&categorie=Aliment');
 
-		return $this->render('accueil', compact('categorie', 'hierarchie'));
+		$recettes = $Recettes; // On va trier les recettes ici
+
+		return $this->render('accueil', compact('categorie', 'hierarchie', 'recettes'));
 	}
 
 }

@@ -19,3 +19,23 @@
 		<?php endforeach ?>
 	</ul>
 <?php endif ?>
+
+
+<hr><hr><hr><hr><hr>
+
+<h2>Liste de toutes les recettes</h2>
+
+
+<?php foreach($recettes as $recette): ?>
+	<h3><?= $recette['titre'] ?></h3>
+	<p><?= $recette['ingredients'] ?></p>
+	<p><?= $recette['preparation'] ?></p>
+
+	<ul>
+		<?php foreach($recette['index'] as $ingredient): ?>
+			<li><?= $ingredient ?></li>
+		<?php endforeach ?>
+	</ul>
+
+	<hr>
+<?php endforeach ?>
