@@ -7,7 +7,14 @@ use App\Controllers\Controller;
 class RecetteController extends Controller {
 
 	public function index() {
-		return $this->render('recettesPreferees');
+		require('../src/Modeles/Donnees.inc.php');
+
+		$recettes = [];
+		foreach($_SESSION['recettes'] as $recette_id) {
+			array_push($recettes, $Recettes[$recette_id]);
+		}
+
+		return $this->render('recettes', compact('recettes'));
 	}
 
 	public function ajouter() {
