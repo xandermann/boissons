@@ -12,7 +12,7 @@ switch($page) {
 		break;
 
 	case 'inscription':
-		(new App\Controllers\UtilisateurController())->connexion();
+		(new App\Controllers\UtilisateurController())->inscription();
 		break;
 
 	default:
