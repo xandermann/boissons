@@ -45,3 +45,7 @@ spl_autoload_register(function ($class) {
 
 <?php session_start() ?>
 <?php require('../src/routes.php') ?>
+
+
+<?php App\Classes\Flash::incrementer() ?>
+<?php App\Classes\Flash::supprimer() ?>

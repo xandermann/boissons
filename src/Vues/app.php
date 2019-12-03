@@ -37,6 +37,14 @@
 			text-align: center;
 			border-bottom: 5px;
 		}
+
+		.succes {
+			background-color: green;
+		}
+
+		.erreur {
+			background-color: red;
+		}
 	</style>
 </head>
 <body>
@@ -49,12 +57,21 @@
 			<?php if(!isset($_SESSION['utilisateur_id'])): ?>
 				<li><a href="index.php?page=connexion">Connexion</a></li>
 				<li><a href="index.php?page=inscription">Inscription</a></li>
-				<?php else: ?>
+			<?php else: ?>
 				<li><a href=""><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
 				<li><a href="?page=se_deconnecter">Deconnexion</a></li>
 			<?php endif ?>
 		</ul>
 	</nav>
+
+	<?php // Message flash ?>
+	<?php if (($_SESSION['flash']['status'] ?? false) == 'succes'): ?>
+		<div class="succes"><?= $_SESSION['flash']['message'] ?></div>
+	<?php endif ?>
+
+	<?php if (($_SESSION['flash']['status'] ?? false) == 'erreur'): ?>
+		<div class="erreur"><?= $_SESSION['flash']['message'] ?></div>
+	<?php endif ?>
 
 	<?= $content ?>
 </body>
