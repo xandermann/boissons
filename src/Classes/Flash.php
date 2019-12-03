@@ -18,7 +18,7 @@ class Flash {
 
 	public function supprimer() {
 		if(isset($_SESSION['flash'])) {
-			if($_SESSION['flash']['age'] == 2) {
+			if($_SESSION['flash']['age'] == 1) {
 				unset($_SESSION['flash']);
 			}
 		}
