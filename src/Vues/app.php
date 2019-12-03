@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-	<title><?= $title ?></title>
+	<title><?= $titre ?></title>
 	<style>
 		nav {
 			margin-bottom: 100px;

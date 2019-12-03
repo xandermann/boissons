@@ -6,11 +6,11 @@ use App\Controllers\Controller;
 
 class RechercheController extends Controller {
 
-	public function rechercher() {
+	public function recherche() {
 
 		require('../src/Modeles/Donnees.inc.php');
 
-		var entree = $_GET[''];
+		$this->render('recherche');
 	}
 
 }

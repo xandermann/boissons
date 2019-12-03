@@ -42,8 +42,8 @@ switch($page) {
 		(new App\Controllers\UtilisateurController)->seDeconnecter();
 		break;
 
-	case 'rechercher':
-		(new App\Controllers\RechercheController)->rechercher();
+	case 'recherche':
+		(new App\Controllers\RechercheController)->recherche();
 		break;
 
 	// 404

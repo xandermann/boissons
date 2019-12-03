@@ -17,7 +17,7 @@ class Controller {
 	protected function render(string $vue, array $variables = []): void {
 
 		// Variables des vues ici
-		$title = 'Projet boisson';
+		$titre = 'Projet boisson';
 		extract($variables);
 
 		// On recupere le contenu
