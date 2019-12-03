@@ -41,7 +41,7 @@ class RecetteController extends Controller {
 			return $recette != $id;
 		});
 
-		$this->redirect('?page=recette', $this->SUCCES, 'La recette a ete supprimee');
+		$this->redirect('recette', $this->SUCCES, 'La recette a ete supprimee');
 	}
 
 }
