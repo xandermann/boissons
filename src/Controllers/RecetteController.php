@@ -21,13 +21,14 @@ class RecetteController extends Controller {
 	public function ajouter() {
 		require('../src/Modeles/Donnees.inc.php');
 		$id = $_GET['id']; // A valider
-		$recette = $Recettes[$id]; // A verifier si la recette existe
+		$recette = $Recettes[$id]; // TODO A verifier si la recette existe
 
 		if(!isset($_SESSION['recettes'])) {
 			$_SESSION['recettes'] = [];
 		}
 
-		array_push($_SESSION['recettes'], $id); // A verifier si elle existe déjà
+		array_push($_SESSION['recettes'], $id); // TODO A verifier si elle existe déjà
+		// TODO si l'utilisateur est connecté, alors ajoute les recettes en BDD
 
 		$this->redirect(false, $this->SUCCES, 'La recette est bien ajoutée !');
 	}

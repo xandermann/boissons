@@ -36,6 +36,8 @@ class UtilisateurController extends Controller {
 		$pseudo = $_POST['pseudo']; // TODO a valider
 		$mdp = $_POST['mdp'];
 
+		// TODO Ajouter les recettes de l'utilisateur en BDD à la session
+
 		$donnees = $bdd->query("SELECT id,pseudo FROM utilisateurs WHERE pseudo='$pseudo' AND mdp='$mdp' LIMIT 1")->fetchAll();
 
 		if (!empty($donnees)) {
