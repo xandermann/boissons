@@ -32,13 +32,14 @@ class DB {
      if(is_null(self::$_instance)) {
 
       try {
-       self::$_instance = new PDO("mysql:host=localhost;dbname=boissons;charset=utf8", 'root', 'root');
-     } catch(Exception $e) {
-      die($e->getMessage());
+        $config = parse_ini_file('../src/Config/config.ini');
+        self::$_instance = new PDO("mysql:host=$config[host];dbname=$config[db];charset=utf8", $config['user'], $config['pass']);
+      } catch(Exception $e) {
+        die($e->getMessage());
+      }
     }
-  }
 
-  return self::$_instance;
-}
+    return self::$_instance;
+  }
 }
 

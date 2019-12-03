@@ -33,7 +33,7 @@ class UtilisateurController extends Controller {
 	public function seConnecter() {
 		$bdd = DB::getInstance();
 
-		$pseudo = $_POST['pseudo'];
+		$pseudo = $_POST['pseudo']; // TODO a valider
 		$mdp = $_POST['mdp'];
 
 		$donnees = $bdd->query("SELECT id,pseudo FROM utilisateurs WHERE pseudo='$pseudo' AND mdp='$mdp' LIMIT 1")->fetchAll();
