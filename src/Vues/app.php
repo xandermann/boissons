@@ -45,8 +45,14 @@
 		<ul>
 			<li><a href="index.php?page=accueil">Page accueil</a></li>
 			<li><a href="index.php?page=recette">Mes recettes preferees</a></li>
-			<li><a href="index.php?page=connexion">Connexion</a></li>
-			<li><a href="index.php?page=inscription">Inscription</a></li>
+
+			<?php if(!isset($_SESSION['utilisateur_id'])): ?>
+				<li><a href="index.php?page=connexion">Connexion</a></li>
+				<li><a href="index.php?page=inscription">Inscription</a></li>
+				<?php else: ?>
+				<li><a href=""><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
+				<li><a href="?page=se_deconnecter">Deconnexion</a></li>
+			<?php endif ?>
 		</ul>
 	</nav>
 

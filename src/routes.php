@@ -34,6 +34,14 @@ switch($page) {
 		(new App\Controllers\UtilisateurController)->ajouterUtilisateur();
 		break;
 
+	case 'se_connecter':
+		(new App\Controllers\UtilisateurController)->seConnecter();
+		break;
+
+	case 'se_deconnecter':
+		(new App\Controllers\UtilisateurController)->seDeconnecter();
+		break;
+
 	case 'rechercher':
 		(new App\Controllers\RechercheController)->rechercher();
 		break;

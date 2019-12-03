@@ -29,7 +29,7 @@ class RecetteController extends Controller {
 
 		array_push($_SESSION['recettes'], $id); // A verifier si elle existe déjà
 
-		$this->redirect($_SERVER['HTTP_REFERER'], $this->SUCCES, 'La recette est bien ajoutée !');
+		$this->redirect(false, $this->SUCCES, 'La recette est bien ajoutée !');
 	}
 
 	public function supprimer() {

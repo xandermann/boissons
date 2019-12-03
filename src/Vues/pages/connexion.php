@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="index.php?page=se_connecter" method="post">
 
 	<label for="pseudo">Pseudo</label>
 	<input type="text" id="pseudo" name="pseudo">

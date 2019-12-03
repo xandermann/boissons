@@ -27,9 +27,13 @@ class Controller {
 		require('../src/Vues/app.php');
 	}
 
-	public function redirect(string $lien, int $status = null, string $message = null) {
-		// Ajouter status et message
-		header("Location: $lien");
+	public function redirect($lien, int $status = null, string $message = null) {
+		if($lien) {
+			// Ajouter status et message
+			header("Location: $lien");
+		} else {
+			header("Location: $_SERVER[HTTP_REFERER]");
+		}
 	}
 
 }
