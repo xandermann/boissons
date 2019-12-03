@@ -30,6 +30,10 @@ switch($page) {
 		(new App\Controllers\UtilisateurController)->inscription();
 		break;
 
+	case 'rechercher':
+		(new App\Controllers\RechercheController)->rechercher();
+		break;
+
 	// 404
 	default:
 		echo 'Page 404, aucune page trouvée';
