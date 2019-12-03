@@ -30,6 +30,10 @@ switch($page) {
 		(new App\Controllers\UtilisateurController)->inscription();
 		break;
 
+	case 'ajouter_utilisateur':
+		(new App\Controllers\UtilisateurController)->ajouterUtilisateur();
+		break;
+
 	case 'rechercher':
 		(new App\Controllers\RechercheController)->rechercher();
 		break;
