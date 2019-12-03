@@ -25,6 +25,18 @@
 			border: 1px solid black;
 			margin: 10px 0;
 		}
+
+		input {
+			display: block;
+			text-align: center;
+			margin: 0 auto;
+		}
+
+		label {
+			display: block;
+			text-align: center;
+			border-bottom: 5px;
+		}
 	</style>
 </head>
 <body>
