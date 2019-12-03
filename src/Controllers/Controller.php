@@ -41,6 +41,7 @@ class Controller {
 		} else {
 			header("Location: $_SERVER[HTTP_REFERER]");
 		}
+		die;
 	}
 
 }

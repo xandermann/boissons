@@ -40,13 +40,12 @@ class UtilisateurController extends Controller {
 
 		$donnees = $bdd->query("SELECT id,pseudo FROM utilisateurs WHERE pseudo='$pseudo' AND mdp='$mdp' LIMIT 1")->fetchAll();
 
-		if (!empty($donnees)) {
-			$_SESSION['utilisateur_id'] = $donnees[0]['id'];
-			$_SESSION['utilisateur_pseudo'] = $donnees[0]['pseudo'];
-		} else {
-			$this->redirect("inscription", $this->ERREUR, 'Identifiants inconnects !');
+		if(empty($donnees)) {
+			$this->redirect("connexion", $this->ERREUR, 'Identifiants inconnects !');
 		}
 
+		$_SESSION['utilisateur_id'] = $donnees[0]['id'];
+		$_SESSION['utilisateur_pseudo'] = $donnees[0]['pseudo'];
 		$this->redirect('accueil', $this->SUCCES, 'Connexion réussie !');
 	}
 
