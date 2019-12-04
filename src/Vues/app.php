@@ -3,6 +3,9 @@
 <head>
 	<title><?= $titre ?></title>
 	<style>
+		html, body {
+			margin: 0;
+		}
 		nav {
 			margin-bottom: 100px;
 			border-top: 10px solid #2196f3;
