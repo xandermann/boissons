@@ -2,59 +2,44 @@
 
 namespace App\Classes;
 
+use App\Classes\ValidatorException;
+
 class Validator {
 
-	public static const $CHAINE = 0;
-	public static const $SEXE = 1;
-	public static const $MOT_DE_PASSE = 2;
+	const CHAINE = 0;
+	const SEXE = 1;
+	const MOT_DE_PASSE = 2;
 
-	public function __invoke($get, Validator $type) {
-		$getATester = $_GET[$get];
-		switch($type) {
-			case self::CHAINE:
-			// Test si chaine ici
-			break;
+	public static function valider(array $variables) {
 
-			case self::SEXE:
-				if($getATester != 'h' && $getATester != 'm') {
-					Flash('Erreur');
+		$ret = [];
+
+		foreach($variables as $nom => $condition) {
+			$variable = $_POST[$nom] ?? $_GET[$nom] ?? new ValidatorException('Variable inconnue');
+
+			switch($condition) {
+				case self::CHAINE: // Condition pour la chaine ici
+				if(!is_string($variable)) {
+					throw new ValidatorException($variable);
 				}
+				break;
+
+				case self::SEXE:
+				if($variable != 'h' || $variable != 'f') {
+					throw new ValidatorException($variable);
+				}
+				break;
+
+				case self::MOT_DE_PASSE:
+				break;
+
+				default:
+				throw new ValidatorException("$condition non valide !");
+			}
+
+			$ret[$nom] = $variable;
 		}
 
-		return $get;
+		return $ret;
 	}
-
-	public function getChaine($var) {
-		// TODO faire valider
-		Flash::creer('erreur', "Le formulaire '$var' n'est pas validé !");
-		return $var;
-	}
-
-	public function getSexe($var) {
-		if ($var != 'h' || $var != 'f') {
-			Flash::creer('erreur', "Le formulaire '$var' est mal validé !");
-		}
-		return $var;
-	}
-
-	public function getMdp($var) {
-		return $var;
-	}
-
-	public function getEmail($var) {
-		return $var;
-	}
-
-	public function getDateNaissance($var) {
-		return $var;
-	}
-
-	public function getCodePostal($var) {
-		return $var;
-	}
-
-	public function getTelephone($var) {
-		return $var;
-	}
-
 }
