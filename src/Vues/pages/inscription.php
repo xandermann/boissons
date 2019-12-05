@@ -15,9 +15,10 @@
 	<label for="prenom">Prenom</label>
 	<input type="text" id="Prenom" name="prenom">
 
-	<label for="sexe">sexe</label>
-	<input type="radio" id="masc" name="sexe">
-	<input type="radio" id="fem" name="sexe">
+	<label for="homme">Homme</label>
+	<input type="radio" id="homme" name="sexe" value="h">
+	<label for="femme">Femme</label>
+	<input type="radio" id="femme" name="sexe" value="f">
 
 	<label for="mail">Adresse mail</label>
 	<input type="text" id="mail" name="mail">
