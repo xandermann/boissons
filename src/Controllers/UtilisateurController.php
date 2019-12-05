@@ -37,8 +37,9 @@ class UtilisateurController extends Controller {
 		$mdp = $_POST['mdp'];
 
 		// TODO Ajouter les recettes de l'utilisateur en BDD à la session
-
-		$donnees = $bdd->query("SELECT id,pseudo FROM utilisateurs WHERE pseudo='$pseudo' AND mdp='$mdp' LIMIT 1")->fetchAll();
+		$req = $bdd->prepare('SELECT id,pseudo FROM utilisateurs WHERE pseudo=? and mdp=? LIMIT 1');
+		$req->execute([$pseudo, $mdp]);
+		$donnees = $req->fetchAll();
 
 		if(empty($donnees)) {
 			$this->redirect("connexion", $this->ERREUR, 'Identifiants inconnects !');
