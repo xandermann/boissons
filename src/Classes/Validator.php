@@ -9,6 +9,9 @@ class Validator {
 	const CHAINE = 0;
 	const SEXE = 1;
 	const MOT_DE_PASSE = 2;
+	const TEL = 3;
+	const CODE_POSTAL = 4;
+	const EMAIL = 5;
 
 	public static function valider(array $variables) {
 
