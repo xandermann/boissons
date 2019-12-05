@@ -16,7 +16,7 @@
 	<input type="text" id="prenom" name="prenom">
 
 	<label for="homme">Homme</label>
-	<input type="radio" id="homme" name="sexe" value="h">
+	<input type="radio" id="homme" name="sexe" value="h" checked>
 	<label for="femme">Femme</label>
 	<input type="radio" id="femme" name="sexe" value="f">
 
@@ -27,10 +27,10 @@
 	<input type="date" id="naissance" name="date_naissance">
 
 	<label for="codeP">Code postal</label>
-	<input type="text" id="codeP" name="code">
+	<input type="text" id="codeP" name="code_postal">
 
 	<label for="telephone">Téléphone</label>
-	<input type="text" id="telephone" name="tel">
+	<input type="text" id="telephone" name="telephone">
 
 	<input type="submit" value="Valider inscription">
 
