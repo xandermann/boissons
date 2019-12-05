@@ -22,21 +22,16 @@ class UtilisateurController extends Controller {
 
 		$validator = Validator::valider([
 			'pseudo' => Validator::CHAINE,
-			'mdp' => Validator::MDP,
-			'mdp2' => Validator::MDP,
+			'mdp' => Validator::MOT_DE_PASSE,
+			'mdp2' => Validator::CHAINE, // Pas besoin de vérifié ici car on l'a déjà fait sur mdp
 		]);
 
-		$pseudo = $_POST['pseudo'];
-		$mdp = $_POST['mdp'];
-		$mdp2 = $_POST['mdp2']; // A verifier
-		// Attention chiffrer le MDP !!! TODO
+		if ($validator['mdp'] != $validator['mdp2']) {
+			$this->redirect('inscription', $this->ERREUR, 'Mot de passe différents');
+		}
 
-		var_dump($validator);
-		die;
-
-		var_dump($pseudo, $mdp, $mdp2);
 		$req = $bdd->prepare('INSERT INTO utilisateurs(pseudo, mdp) VALUES(?, ?)');
-		$req->execute([$pseudo, $mdp]);
+		$req->execute([$validator['pseudo'], password_hash($validator['mdp'], PASSWORD_DEFAULT)]);
 
 		$this->redirect('connexion', $this->SUCCES, 'Bravo ! L\'inscription à été réussie !');
 	}

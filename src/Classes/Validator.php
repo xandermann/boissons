@@ -9,7 +9,7 @@ class Validator {
 	const CHAINE = 0;
 	const SEXE = 1;
 	const MOT_DE_PASSE = 2;
-	const TEL = 3;
+	const TELEPHONE = 3;
 	const CODE_POSTAL = 4;
 	const EMAIL = 5;
 
@@ -34,6 +34,15 @@ class Validator {
 				break;
 
 				case self::MOT_DE_PASSE:
+				break;
+
+				case self::TELEPHONE:
+				break;
+
+				case self::CODE_POSTAL:
+				break;
+
+				case self::EMAIL:
 				break;
 
 				default:
