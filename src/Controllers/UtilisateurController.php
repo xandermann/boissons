@@ -93,6 +93,9 @@ class UtilisateurController extends Controller {
 	}
 
 	public function seDeconnecter() {
+		if(!isset($_SESSION['utilisateur_id'])) {
+			$this->redirect('accueil', $this->ERREUR, 'Vous êtes déjà déconnecté !');
+		}
 		unset($_SESSION['utilisateur_id']);
 		$this->redirect(false, $this->SUCCES, 'Deconnexion réussie !');
 	}

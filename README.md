@@ -2,8 +2,7 @@ HUBLAU Alexandre
 MATUCHET Louis
 
 # TODO
-* [BUG] se deconnecter <- si l'utilisateur est déjà deconnecé
-* Ajouter les 
+* Ajouter les recettes quand l'utilisateur se connecte
 * Designer - Faire moteur de recherche
 
 # Projet Boisson Programmation web S5, 2019-2020
