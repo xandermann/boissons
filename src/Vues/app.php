@@ -57,7 +57,7 @@
 
 		.contenu img {
 			max-width: 300px;
-			display: block;
+			display: inline;
 			margin: 0 auto;
 		}
 	</style>
