@@ -56,6 +56,7 @@
 		<ul>
 			<li><a href="index.php?page=accueil">Page accueil</a></li>
 			<li><a href="index.php?page=recette">Mes recettes preferees</a></li>
+			<li><a href="index.php?page=recherche">Recherche</a></li>
 
 			<?php if(!isset($_SESSION['utilisateur_id'])): ?>
 				<li><a href="index.php?page=connexion">Connexion</a></li>
