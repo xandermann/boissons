@@ -11,7 +11,7 @@ class RecetteController extends Controller {
 		require('../src/Modeles/Donnees.inc.php');
 
 		$recettes = [];
-		foreach($_SESSION['recettes'] ?? [] as $recette_id) {
+		foreach(($_SESSION['recettes'] ?? []) as $recette_id) {
 			$recettes[$recette_id] = $Recettes[$recette_id];
 			//array_push($recettes, $Recettes[$recette_id]);
 		}

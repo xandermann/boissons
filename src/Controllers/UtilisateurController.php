@@ -89,6 +89,19 @@ class UtilisateurController extends Controller {
 
 		$_SESSION['utilisateur_id'] = $donnees[0]['id'];
 		$_SESSION['utilisateur_pseudo'] = $donnees[0]['pseudo'];
+
+		// On ajoute les recettes qu'il a
+
+		$req = $bdd->prepare('SELECT id FROM recettes WHERE utilisateur_id=?');
+		$req->execute([$_SESSION['utilisateur_id']]);
+		$reponses = $req->fetchAll();
+
+		$_SESSION['recettes'] = $_SESSION['recettes'] ?? [];
+
+		foreach($reponses as $reponse) {
+			array_push($_SESSION['recettes'], $reponse['id']);
+		}
+
 		$this->redirect('accueil', $this->SUCCES, 'Connexion réussie !');
 	}
 
