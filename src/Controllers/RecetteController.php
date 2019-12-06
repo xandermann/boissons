@@ -57,4 +57,16 @@ class RecetteController extends Controller {
 		$this->redirect('recette', $this->SUCCES, "La recette $id a ete supprimee de vos recettes");
 	}
 
+	public function supprimerTout() {
+		$_SESSION['recettes'] = [];
+
+		if ($_SESSION['utilisateur_id']) {
+			$bdd = DB::getInstance();
+			$req = $bdd->prepare('DELETE FROM recettes WHERE utilisateur_id=?');
+			$req->execute([$_SESSION['utilisateur_id']]);
+		}
+
+		$this->redirect('recette', $this->SUCCES, "Toutes vos recettes ont été supprimées !");
+	}
+
 }

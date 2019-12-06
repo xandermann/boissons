@@ -11,6 +11,8 @@
 		<?php endforeach ?>
 	</ul>
 
+	<a href="?page=supprimer_recettes">Supprimer toutes les recettes</a>
+
 <?php } else { ?>
 
 	<h3>Pas de recette preferees :(</h3>
