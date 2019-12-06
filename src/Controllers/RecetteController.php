@@ -43,12 +43,18 @@ class RecetteController extends Controller {
 	public function supprimer() {
 		$id = $_GET['id']; // A verifier
 
-		// Supprime la cle
+		// Supprime la cle dans la session
 		$_SESSION['recettes'] = array_filter($_SESSION['recettes'], function($recette) use ($id) {
 			return $recette != $id;
 		});
 
-		$this->redirect('recette', $this->SUCCES, 'La recette a ete supprimee');
+		if ($_SESSION['utilisateur_id']) {
+			$bdd = DB::getInstance();
+			$req = $bdd->prepare('DELETE FROM recettes WHERE id=? AND utilisateur_id=?');
+			$req->execute([$id,$_SESSION['utilisateur_id']]);
+		}
+
+		$this->redirect('recette', $this->SUCCES, "La recette $id a ete supprimee de vos recettes");
 	}
 
 }
