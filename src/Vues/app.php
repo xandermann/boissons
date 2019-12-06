@@ -48,6 +48,12 @@
 		.erreur {
 			background-color: red;
 		}
+
+		.contenu {
+			border: 1px solid black;
+			margin: 0 auto;
+			width: 1000px;
+		}
 	</style>
 </head>
 <body>
@@ -58,13 +64,13 @@
 			<li><a href="index.php?page=recette">Mes recettes preferees</a></li>
 			<li><a href="index.php?page=recherche">Recherche</a></li>
 
-			<?php if(!isset($_SESSION['utilisateur_id'])): ?>
+			<?php if (!isset($_SESSION['utilisateur_id'])){ ?>
 				<li><a href="index.php?page=connexion">Connexion</a></li>
 				<li><a href="index.php?page=inscription">Inscription</a></li>
-			<?php else: ?>
+			<?php } else{ ?>
 				<li><a href=""><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
 				<li><a href="?page=se_deconnecter">Deconnexion</a></li>
-			<?php endif ?>
+			<?php } ?>
 		</ul>
 	</nav>
 
@@ -77,6 +83,8 @@
 		<div class="erreur"><?= $_SESSION['flash']['message'] ?></div>
 	<?php endif ?>
 
-	<?= $content ?>
+	<div class="contenu">
+		<?= $content ?>
+	</div>
 </body>
 </html>
