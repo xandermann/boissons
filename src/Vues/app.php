@@ -54,6 +54,12 @@
 			margin: 0 auto;
 			width: 1000px;
 		}
+
+		.contenu img {
+			max-width: 300px;
+			display: block;
+			margin: 0 auto;
+		}
 	</style>
 </head>
 <body>
