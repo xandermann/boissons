@@ -35,6 +35,13 @@ La fonction est utilisée ici: [https://www.php-fig.org/psr/psr-4/examples/](htt
 
 Les mots de passe sont chiffrés
 
+Lorsque les utilisateurs choisissent des recettes:
+* Si l'utilisateur n'est pas connecté, alors les recettes sont sauvegardées dans la session
+	* Si l'utilisateur se connecte, alors les recettes ajoutées précédement ainsi que les recettes qu'il avait sont ajoutés à son compte (merge)
+	* Si l'utilisateur se déconnecte, alors les recettes sont effacées de sa session (mais pas de son compte !)
+	* Si l'utilisateur connecté supprime les recettes, alors elles sont supprimées de son compte et sa session
+	* Si l'utilisateur non connecté supprime les recettes, alors elles sont supprimées de sa session
+
 ## Ajouts
 
 * Nous avons ajouté les messages flash pour prévenir l'utilisateur s'il a fait une action.
