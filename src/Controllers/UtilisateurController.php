@@ -121,6 +121,7 @@ class UtilisateurController extends Controller {
 			$this->redirect('accueil', $this->ERREUR, 'Vous êtes déjà déconnecté !');
 		}
 		unset($_SESSION['utilisateur_id']);
+		unset($_SESSION['recettes']);
 		$this->redirect(false, $this->SUCCES, 'Deconnexion réussie !');
 	}
 
