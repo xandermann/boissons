@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
+use App\Classes\DB;
 
 class RecetteController extends Controller {
 
@@ -25,6 +26,12 @@ class RecetteController extends Controller {
 
 		if(!isset($_SESSION['recettes'])) {
 			$_SESSION['recettes'] = [];
+		}
+
+		if ($_SESSION['utilisateur_id']) { // On ajoute dans la table si l'utilisateur est connecté
+			$bdd = DB::getInstance();
+			$req = $bdd->prepare('INSERT INTO recettes(id, utilisateur_id) VALUES (?, ?)');
+			$req->execute([$id, $_SESSION['utilisateur_id']]);
 		}
 
 		array_push($_SESSION['recettes'], $id); // TODO A verifier si elle existe déjà

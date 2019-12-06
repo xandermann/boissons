@@ -33,6 +33,8 @@ Pas de base de données car pas obligatoire et surtout évitable pour les boisso
 On a utiliser un autoloader (une fonction du psr-4) pour ne pas à faire 50 *require()* et *include()* dans chaque classe.
 La fonction est utilisée ici: [https://www.php-fig.org/psr/psr-4/examples/](https://www.php-fig.org/psr/psr-4/examples/)
 
+Les mots de passe sont chiffrés
+
 ## Ajouts
 
 * Nous avons ajouté les messages flash pour prévenir l'utilisateur s'il a fait une action.
