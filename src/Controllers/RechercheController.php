@@ -15,22 +15,23 @@ class RechercheController extends Controller {
 
 	public function rechercher() {
 		require('../src/Modeles/Donnees.inc.php');
-		//header('Content-Type: application/json');
+		header('Content-Type: application/json');
 
-		$recetteAChercher = $_GET['q'] ?? '';
+		$recherche = $_GET['q'] ?? '';
 
-		/*
 		$Recettes = array_map(function($recette) {
-			return $recette['titre'];
+			return strtolower($recette['titre']);
 		}, $Recettes);
-		*/
 
-		$recette = $Recettes[0]['titre'];
+		$ret = array_filter($Recettes, function($recette) use ($recherche) {
+			return preg_match("/$recherche/", $recette);
+		});
 
-		var_dump($recette);
+		//echo "La recette $recette";
+		//var_dump($ret);
 
 
-		//echo json_encode($ret);
+		echo json_encode($ret);
 
 	}
 
