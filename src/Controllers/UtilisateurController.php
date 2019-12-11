@@ -101,6 +101,7 @@ class UtilisateurController extends Controller {
 			}
 		}
 		*/
+		unset($_SESSION['recettes']);
 
 		// On ajoute les recettes qu'il a
 		$req = $bdd->prepare('SELECT id FROM recettes WHERE utilisateur_id=?');
