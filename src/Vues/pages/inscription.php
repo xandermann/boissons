@@ -26,8 +26,14 @@
 	<label for="naissance">Date de naisance</label>
 	<input type="date" id="naissance" name="date_naissance">
 
+	<label for="adresse">Adresse</label>
+	<input type="text" id="adresse" name="adresse">
+
 	<label for="codeP">Code postal</label>
 	<input type="text" id="codeP" name="code_postal">
+
+	<label for="ville">Ville</label>
+	<input type="text" id="ville" name="ville">
 
 	<label for="telephone">Téléphone</label>
 	<input type="text" id="telephone" name="telephone">

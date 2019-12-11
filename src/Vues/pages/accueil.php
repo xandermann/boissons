@@ -1,6 +1,6 @@
 <h1><?= $categorie ?></h1>
 
-<p>Todo: Afficher le chemin</p>
+<p>Chemin: <?= $chemin ?></p>
 
 <?php if(array_key_exists('super-categorie', $hierarchie)): ?>
 	<div class="box">
@@ -8,9 +8,15 @@
 		<h2>Super catégorie</h2>
 		<ul>
 			<?php foreach($hierarchie['super-categorie'] as $superCategorie): ?>
-				<li><a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>">
-					<?= $superCategorie ?>
-				</a></li>
+				<li>
+					<?php
+						echo $chemin;
+					?>
+					<p><?php var_dump($chemin) ?></p>
+					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>&chemin=<?= $chemin ?>">
+						<?= $superCategorie ?>
+					</a>
+				</li>
 			<?php endforeach; ?>
 		</ul>
 
@@ -25,9 +31,11 @@
 
 		<ul>
 			<?php foreach($hierarchie['sous-categorie'] as $id => $sousCategorie): ?>
-				<li><a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $sousCategorie) ?>">
-					<?= $id ?> - <?= $sousCategorie ?>
-				</a></li>
+				<li>
+					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $sousCategorie) ?>&chemin=<?= $chemin ?>/<?= $sousCategorie ?>">
+						<?= $id ?> - <?= $sousCategorie ?>
+					</a>
+				</li>
 			<?php endforeach ?>
 		</ul>
 	</div>
