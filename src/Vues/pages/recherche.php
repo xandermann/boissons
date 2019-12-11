@@ -12,18 +12,23 @@
 
 <div id="affichage"></div>
 
-
-
 <script>
 
 	document.querySelector('#recherche').addEventListener('keyup', event => {
+		console.log(event.target.value)
+
+		if(!event.target.value) {
+			document.querySelector('#affichage').innerHTML = ''
+			return 0
+		}
+
 		let recherche = fetch('index.php?page=rechercher&q=' + event.target.value)
 		.then(response => response.json())
 		.then(json => {
 
-			let html = "";
+			let html = "<ul>";
 			Object.keys(json).forEach(j => {
-				html += json[j] + '<br>';
+				html += "<li><a href='index.php?page=ajouter_recette&id=" + j + "'>" + json[j] + "</a></li>"
 			})
 
 			document.querySelector('#affichage').innerHTML = html
