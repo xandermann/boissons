@@ -10,10 +10,16 @@
 			<?php foreach($hierarchie['super-categorie'] as $superCategorie): ?>
 				<li>
 					<?php
-						echo $chemin;
+					$lien = explode('/', $chemin);
+					$ret = "";
+
+					for($i=0; $i<count($lien)-1; $i++) {
+						$ret .= $lien[$i] . '/';
+					}
+
+					$lien = substr($ret, 0, -1);;
 					?>
-					<p><?php var_dump($chemin) ?></p>
-					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>&chemin=<?= $chemin ?>">
+					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>&chemin=<?= $lien ?>">
 						<?= $superCategorie ?>
 					</a>
 				</li>
