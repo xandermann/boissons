@@ -13,3 +13,9 @@
 	<input type="submit" value="Rechercher">
 
 </form>
+
+<script>
+	fetch('index.php?page=rechercher')
+	.then(response => response.json())
+	.then(json => console.log(json))
+</script>

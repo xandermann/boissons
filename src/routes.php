@@ -50,6 +50,10 @@ switch($page) {
 		(new App\Controllers\RechercheController)->recherche();
 		break;
 
+	case 'rechercher':
+		(new App\Controllers\RechercheController)->rechercher();
+		break;
+
 	// 404
 	default:
 		echo 'Page 404, aucune page trouvée';

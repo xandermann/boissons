@@ -90,7 +90,7 @@ class UtilisateurController extends Controller {
 		$_SESSION['utilisateur_id'] = $donnees[0]['id'];
 		$_SESSION['utilisateur_pseudo'] = $donnees[0]['pseudo'];
 
-
+		/*
 		// On merge les recettes qu'il a, s'il en a
 		if (isset($_SESSION['recettes'])) {
 			$recettes = $_SESSION['recettes'];
@@ -100,6 +100,7 @@ class UtilisateurController extends Controller {
 				$req->execute([$recette,$_SESSION['utilisateur_id']]);
 			}
 		}
+		*/
 
 		// On ajoute les recettes qu'il a
 		$req = $bdd->prepare('SELECT id FROM recettes WHERE utilisateur_id=?');
