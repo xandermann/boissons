@@ -6,13 +6,14 @@
 			<li>
 				<h2><?= $recette['titre'] ?></h2>
 				<p><a href="index.php?page=supprimer_recette&id=<?= $id ?>">Supprimer</a></p>
+				<p><a href="?page=voir_recette&id=<?= $id ?>">Supprimer toutes les recettes</a></p>
 				<!-- <?= $recette['ingredients'] ?> <?= $recette['preparation'] ?> -->
 			</li>
 		<?php endforeach ?>
 	</ul>
 
 	<a href="?page=supprimer_recettes">Supprimer toutes les recettes</a>
-	<a href="?page=voir_recette&id=<?= $id ?>">Supprimer toutes les recettes</a>
+
 
 <?php } else { ?>
 
