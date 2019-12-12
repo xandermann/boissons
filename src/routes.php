@@ -25,6 +25,10 @@ switch($page) {
 		(new App\Controllers\RecetteController)->supprimerTout();
 		break;
 
+	case 'voir_recette':
+		(new App\Controllers\RecetteController)->voir();
+		break;
+
 	// Connexion
 	case 'connexion':
 		(new App\Controllers\UtilisateurController)->connexion();

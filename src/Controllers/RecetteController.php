@@ -69,4 +69,16 @@ class RecetteController extends Controller {
 		$this->redirect('recette', $this->SUCCES, "Toutes vos recettes ont été supprimées !");
 	}
 
+	public function voir() {
+		require('../src/Modeles/Donnees.inc.php');
+
+
+		$id = $_GET['id']; // TODO Valider
+
+		$recette = $Recettes[$id] ?? die('Aucune recette');
+
+		$this->render('voir_recette', compact('recette'));
+
+	}
+
 }
