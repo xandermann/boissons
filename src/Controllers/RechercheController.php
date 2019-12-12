@@ -15,13 +15,12 @@ class RechercheController extends Controller {
 
 	public function rechercher() {
 		require('../src/Modeles/Donnees.inc.php');
-		header('Content-Type: application/json');
+		//header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
 		$ingredientsDansLarecherche = explode(",", $recherche);
 
-		//var_dump($recherche);
-
+		// Ici on trie (fonction recherche)
 		$resultat = array_filter($Recettes, function($recette) use ($ingredientsDansLarecherche) {
 
 
@@ -41,25 +40,12 @@ class RechercheController extends Controller {
 			return true;
 		});
 
+		// Ici, on renvoie seulement le titre
+		$resultat = array_map(function($recette) {
+			return $recette['titre'];
+		}, $resultat);
+
 		echo json_encode($resultat);
-
-		//var_dump($recherche);
-
-		/*
-		$Recettes = array_map(function($recette) {
-			return strtolower($recette['titre']);
-		}, $Recettes);
-
-		$ret = array_filter($Recettes, function($recette) use ($recherche) {
-			return preg_match("/$recherche/", $recette);
-		});
-
-		//echo "La recette $recette";
-		//var_dump($ret);
-
-
-		echo json_encode($ret);
-		*/
 
 	}
 
