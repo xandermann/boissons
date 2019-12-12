@@ -3,11 +3,8 @@
 <h1>Page de recherche</h1>
 
 <form action="index.php?page=rechercher" method="get">
-
 	<label for="recherche">Ce que vous voulez</label>
 	<input type="text" id="recherche" name="recherche">
-
-	<input type="submit" value="Rechercher">
 </form>
 
 <div id="affichage"></div>

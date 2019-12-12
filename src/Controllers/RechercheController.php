@@ -15,10 +15,24 @@ class RechercheController extends Controller {
 
 	public function rechercher() {
 		require('../src/Modeles/Donnees.inc.php');
-		header('Content-Type: application/json');
+		//header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
+		//$recherche = explode(",", $recherche);
 
+		$resultat = array_filter($Recettes, function($recette) use ($recherche) {
+			// Tester si pour chaque index ça match, si oui, alors return true
+
+
+
+			return in_array('Malibu', $recette['index']);
+		});
+
+		//var_dump($recherche);
+
+		var_dump($resultat);
+
+		/*
 		$Recettes = array_map(function($recette) {
 			return strtolower($recette['titre']);
 		}, $Recettes);
@@ -32,6 +46,7 @@ class RechercheController extends Controller {
 
 
 		echo json_encode($ret);
+		*/
 
 	}
 
