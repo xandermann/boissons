@@ -12,7 +12,6 @@
 <script>
 
 	document.querySelector('#recherche').addEventListener('keyup', event => {
-		console.log(event.target.value)
 
 		if(!event.target.value) {
 			document.querySelector('#affichage').innerHTML = ''
