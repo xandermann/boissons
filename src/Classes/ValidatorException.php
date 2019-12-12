@@ -6,10 +6,4 @@ use \Exception;
 
 class ValidatorException extends Exception {
 
-	/*
-	public function __construct() {
-
-	}
-	*/
-
 }
