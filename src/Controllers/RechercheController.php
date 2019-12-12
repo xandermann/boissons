@@ -22,13 +22,17 @@ class RechercheController extends Controller {
 
 		var_dump($recherche);
 
-		$resultat = array_filter($Recettes, function($recette) use ($recherche) {
-			// Tester si pour chaque index ça match, si oui, alors return true
+		$resultat = array_filter($Recettes, function($recette) use ($ingredientsDansLarecherche) {
 
-			return !empty(array_intersect($recette['index'], $recherche));
-			die;
 
-			return in_array('Malibu', $recette['index']);
+			// $ingredientsDansLarecherche <- C'est un tableau qui contient tout les ingredients qu'on cherche
+			// ingredientsDansLaRecette <- Liste des ingredients dans la recette
+			$ingredientsDansLaRecette = $recette['index'];
+
+			//return !empty(array_intersect($ingredientsDansLaRecette, $recherche));
+			// return in_array('Malibu', ingredientsDansLaRecette);
+			//
+			return true; // Ici, il faut retourner true si ce qu'il y a les ingredients recherchés dans les ingredients dans la recette
 		});
 
 		//var_dump($recherche);
