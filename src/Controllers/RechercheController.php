@@ -15,12 +15,12 @@ class RechercheController extends Controller {
 
 	public function rechercher() {
 		require('../src/Modeles/Donnees.inc.php');
-		//header('Content-Type: application/json');
+		header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
 		$ingredientsDansLarecherche = explode(",", $recherche);
 
-		var_dump($recherche);
+		//var_dump($recherche);
 
 		$resultat = array_filter($Recettes, function($recette) use ($ingredientsDansLarecherche) {
 
@@ -39,16 +39,11 @@ class RechercheController extends Controller {
 
 			}
 			return true;
-
-			//return !empty(array_intersect($ingredientsDansLaRecette, $recherche));
-			// return in_array('Malibu', ingredientsDansLaRecette);
-			//
-			return true; // Ici, il faut retourner true si ce qu'il y a les ingredients recherchés dans les ingredients dans la recette
 		});
 
-		//var_dump($recherche);
+		echo json_encode($resultat);
 
-		var_dump($resultat);
+		//var_dump($recherche);
 
 		/*
 		$Recettes = array_map(function($recette) {
