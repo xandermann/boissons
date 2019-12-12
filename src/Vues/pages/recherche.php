@@ -24,7 +24,7 @@
 
 			let html = "<ul>";
 			Object.keys(json).forEach(j => {
-				html += "<li><a href='index.php?page=ajouter_recette&id=" + j + "'>" + json[j] + "</a></li>"
+				html += "<li><a href='index.php?page=voir_recette&id=" + j + "'>" + json[j] + "</a></li>"
 			})
 
 			document.querySelector('#affichage').innerHTML = html
