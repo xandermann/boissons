@@ -18,12 +18,15 @@ class RechercheController extends Controller {
 		//header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
-		//$recherche = explode(",", $recherche);
+		$recherche = explode(",", $recherche);
+
+		var_dump($recherche);
 
 		$resultat = array_filter($Recettes, function($recette) use ($recherche) {
 			// Tester si pour chaque index ça match, si oui, alors return true
 
-
+			return !empty(array_intersect($recette['index'], $recherche));
+			die;
 
 			return in_array('Malibu', $recette['index']);
 		});
