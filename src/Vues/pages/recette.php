@@ -12,6 +12,7 @@
 	</ul>
 
 	<a href="?page=supprimer_recettes">Supprimer toutes les recettes</a>
+	<a href="?page=voir_recette&id=<?= $id ?>">Supprimer toutes les recettes</a>
 
 <?php } else { ?>
 
