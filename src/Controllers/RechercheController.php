@@ -18,7 +18,7 @@ class RechercheController extends Controller {
 		//header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
-		$recherche = explode(",", $recherche);
+		$ingredientsDansLarecherche = explode(",", $recherche);
 
 		var_dump($recherche);
 
@@ -28,6 +28,17 @@ class RechercheController extends Controller {
 			// $ingredientsDansLarecherche <- C'est un tableau qui contient tout les ingredients qu'on cherche
 			// ingredientsDansLaRecette <- Liste des ingredients dans la recette
 			$ingredientsDansLaRecette = $recette['index'];
+
+
+			foreach($ingredientsDansLarecherche as $ingredient) {
+				if (in_array($ingredient, $ingredientsDansLaRecette)) {
+					// Alors ok
+				} else {
+					return false;
+				}
+
+			}
+			return true;
 
 			//return !empty(array_intersect($ingredientsDansLaRecette, $recherche));
 			// return in_array('Malibu', ingredientsDansLaRecette);
