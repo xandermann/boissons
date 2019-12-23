@@ -22,7 +22,7 @@ CREATE TABLE `utilisateurs` (
   `mot_de_passe` varchar(255) NOT NULL,
   `nom` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL,
-  `sexe` varchar(1) DEFAULT NULL,
+  `sexe` varchar(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `adresse` varchar(50) DEFAULT NULL,
   `ville` varchar(50) DEFAULT NULL,

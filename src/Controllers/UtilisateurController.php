@@ -252,7 +252,11 @@ class UtilisateurController extends Controller {
 		$req = $bdd->prepare('select * from utilisateurs where id=? limit 1');
 		$req->execute([$connecte]);
 
-		$utilisateur = $req->fetchAll()[0];
+		$utilisateur = $req->fetchAll();
+
+		if(empty($utilisateur)) {
+			$this->redirect('accueil', $this->ERREUR, 'Erreur');
+		}
 
 		$this->render('voir_utilisateur', compact('utilisateur'));
 	}
@@ -388,6 +392,7 @@ class UtilisateurController extends Controller {
 			//where
 			$connecte,
 		]);
+
 
 		$this->redirect(null, $this->SUCCES, 'Bravo les informations ont été changés !');
 	}
