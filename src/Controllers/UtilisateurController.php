@@ -78,7 +78,7 @@ class UtilisateurController extends Controller {
 
 		$sexe = $_POST['sexe'] ?? null;
 		if($sexe) {
-			if($sexe != 'homme' || $sexe != 'femme') {
+			if($sexe != 'homme' && $sexe != 'femme') {
 				Flash::ajouterErreur('sexe', 'Le format du sexe est incorrect');
 				$is_erreur = true;
 			}
@@ -285,6 +285,7 @@ class UtilisateurController extends Controller {
 		$telephone = $_POST['telephone'] ?? null;
 
 		//if($mot_de_passe !=)
+		$is_erreur = false;
 
 
 		// if (!preg_match('/^[a-zA-Z0-9]{4,99}$/', $mot_de_passe)) {
@@ -310,7 +311,7 @@ class UtilisateurController extends Controller {
 
 		$sexe = $_POST['sexe'] ?? null;
 		if($sexe) {
-			if($sexe != 'homme' || $sexe != 'femme') {
+			if($sexe != 'homme' && $sexe != 'femme') {
 				Flash::ajouterErreur('sexe', 'Le format du sexe est incorrect');
 				$is_erreur = true;
 			}
@@ -375,13 +376,14 @@ class UtilisateurController extends Controller {
 			$naissance = null;
 		}
 
+
 		$req->execute([
 			//password_hash($mot_de_passe, PASSWORD_DEFAULT),
 
 			$nom,
 			$prenom,
 			$sexe,
-			$email,
+			$mail,
 			$adresse,
 			$ville,
 			$code_postal,
@@ -391,7 +393,6 @@ class UtilisateurController extends Controller {
 			//where
 			$connecte,
 		]);
-
 
 		$this->redirect(null, $this->SUCCES, 'Bravo les informations ont été changés !');
 	}

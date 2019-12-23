@@ -21,9 +21,9 @@
 		<div class="erreur"><?= $_SESSION['flash']['sexe']['message'] ?></div>
 	<?php endif ?>
 	<label for="homme">Homme</label>
-	<input type="radio" id="homme" name="sexe" value="homme">
+	<input type="radio" id="homme" name="sexe" value="homme" <?php if($utilisateur['sexe'] == 'homme') echo "checked" ?>>
 	<label for="femme">Femme</label>
-	<input type="radio" id="femme" name="sexe" value="femme">
+	<input type="radio" id="femme" name="sexe" value="femme" <?php if($utilisateur['sexe'] == 'femme') echo "checked" ?>>
 
 	<?php if(isset($_SESSION['flash']['mail'])): ?>
 		<div class="erreur"><?= $_SESSION['flash']['mail']['message'] ?></div>
