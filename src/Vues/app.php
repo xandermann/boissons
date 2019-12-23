@@ -74,7 +74,7 @@
 				<li><a href="index.php?page=connexion">Connexion</a></li>
 				<li><a href="index.php?page=inscription">Inscription</a></li>
 			<?php } else{ ?>
-				<li><a href=""><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
+				<li><a href="?page=voir_utilisateur"><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
 				<li><a href="?page=se_deconnecter">Deconnexion</a></li>
 			<?php } ?>
 		</ul>

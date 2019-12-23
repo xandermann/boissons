@@ -42,6 +42,14 @@ switch($page) {
 		(new App\Controllers\UtilisateurController)->ajouterUtilisateur();
 		break;
 
+	case 'voir_utilisateur':
+		(new App\Controllers\UtilisateurController)->voirUtilisateur();
+		break;
+
+	case 'modifier_utilisateur':
+		(new App\Controllers\UtilisateurController)->modifierUtilisateur();
+		break;
+
 	case 'se_connecter':
 		(new App\Controllers\UtilisateurController)->seConnecter();
 		break;
