@@ -31,6 +31,11 @@
 		})
 	});
 
-
-
 </script>
+
+<hr>
+
+<ul>
+<?php foreach($ingredients as $ingredient): ?>
+	<li><?= $ingredient ?></li>
+<?php endforeach ?>

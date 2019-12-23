@@ -10,7 +10,18 @@ class RechercheController extends Controller {
 
 		require('../src/Modeles/Donnees.inc.php');
 
-		$this->render('recherche');
+		$liste_ingredients = array_map(function($recette) {
+			return $recette['index'];
+		}, $Recettes);
+
+		$liste_ingredients_tab = $liste_ingredients[0];
+		foreach($liste_ingredients as $ingredients) {
+			$liste_ingredients_tab = array_merge($liste_ingredients_tab, $ingredients);
+		}
+
+		$ingredients = array_unique($liste_ingredients_tab);
+
+		$this->render('recherche', compact('ingredients'));
 	}
 
 	public function rechercher() {
@@ -30,12 +41,9 @@ class RechercheController extends Controller {
 
 
 			foreach($ingredientsDansLarecherche as $ingredient) {
-				if (in_array($ingredient, $ingredientsDansLaRecette)) {
-					// Alors ok
-				} else {
+				if (!in_array($ingredient, $ingredientsDansLaRecette)) {
 					return false;
 				}
-
 			}
 			return true;
 		});
