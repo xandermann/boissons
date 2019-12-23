@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-use App\Classes\ValidatorException;
+use App\Classes\Flash;
 
 class Validator {
 
@@ -21,7 +21,7 @@ class Validator {
 		$ret = [];
 
 		foreach($variables as $nom => $condition) {
-			$variable = $_POST[$nom] ?? $_GET[$nom] ?? new ValidatorException("Variable $nom inconnue");
+			$variable = $_POST[$nom] ?? $_GET[$nom] ?? Flash::ajouterErreur($nom, 'Variable requise !');
 
 			switch($condition) {
 				case self::CHAINE:
@@ -41,25 +41,25 @@ class Validator {
 
 				case self::MOT_DE_PASSE:
 				if(preg_match('/[a-zA-Z0-9]{4,}/',$variable)){
-					throw new ValidatorException("le mot de passe doit contenir une majuscule, une minuscule et un numéro");			
+					throw new ValidatorException("le mot de passe doit contenir une majuscule, une minuscule et un numéro");
 				}
 				break;
 
 				case self::TELEPHONE_NULLABLE:
 				if(preg_match('/[0-9]{10}/',$variable)){
-					throw new ValidatorException("le numero de telephone doit contenir 10 numéros et uniquement des numéros");			
+					throw new ValidatorException("le numero de telephone doit contenir 10 numéros et uniquement des numéros");
 				}
 				break;
 
 				case self::CODE_POSTAL_NULLABLE:
 				if(preg_match('/[0-9]{5}/',$variable)){
-					throw new ValidatorException("le code postal doit contenir 5 numéros et uniquement des numéros");			
+					throw new ValidatorException("le code postal doit contenir 5 numéros et uniquement des numéros");
 				}
 				break;
 
 				case self::EMAIL_NULLABLE:
 				if(preg_match('/[a-zA-Z0-9\.\-\_]+@[a-zA-Z0-9].[a-z]+/',$variable)){
-					throw new ValidatorException("le mail doit contenir au moins un @ et une fin (.com, .fr...)");			
+					throw new ValidatorException("le mail doit contenir au moins un @ et une fin (.com, .fr...)");
 				}
 				break;
 

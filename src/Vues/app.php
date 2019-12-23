@@ -81,12 +81,12 @@
 	</nav>
 
 	<?php // Message flash ?>
-	<?php if (($_SESSION['flash']['status'] ?? false) == 'succes'): ?>
-		<div class="succes"><?= $_SESSION['flash']['message'] ?></div>
+	<?php if (($_SESSION['flash'][0]['status'] ?? false) == 'succes'): ?>
+		<div class="succes"><?= $_SESSION['flash'][0]['message'] ?></div>
 	<?php endif ?>
 
-	<?php if (($_SESSION['flash']['status'] ?? false) == 'erreur'): ?>
-		<div class="erreur"><?= $_SESSION['flash']['message'] ?></div>
+	<?php if (($_SESSION['flash'][0]['status'] ?? false) == 'erreur'): ?>
+		<div class="erreur"><?= $_SESSION['flash'][0]['message'] ?></div>
 	<?php endif ?>
 
 	<div class="contenu">
