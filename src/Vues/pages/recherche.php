@@ -11,10 +11,15 @@
 
 <div id="affichage"></div>
 
-<div id="tag"></div>
+<ul id="tags"></ul>
 
 <script>
 
+	/**
+	 * Fonction qui fait l'ajax et qui affiche les aliments trouvés
+	 * @param  {[type]} inputElement [description]
+	 * @return {[type]}              [description]
+	 */
 	let afficherAliments = (inputElement) => {
 		if(!inputElement.value) {
 			document.querySelector('#affichage').innerHTML = ''
@@ -46,9 +51,21 @@
 
 		let recherche = document.querySelector('#recherche')
 		tags.push(recherche.value)
-		//recherche.value = ""
+
+		if (tags.indexOf('Melon') == -1) {
+			tags.push(recherche)
+		}
+
 
 	})
+
+
+
+
+
+
+
+
 
 	function autocomplete(inp, arr) {
 		var currentFocus
