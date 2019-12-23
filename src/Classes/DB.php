@@ -32,7 +32,17 @@ class DB {
      if(is_null(self::$_instance)) {
 
       try {
-        $config = parse_ini_file('../src/Config/config.ini');
+
+        if(file_exists('../src/Config/config.ini')) {
+          $config = parse_ini_file('../src/Config/config.ini');
+        } elseif(file_exists('src/Config/config.ini')) {
+          $config = parse_ini_file('src/Config/config.ini');
+        } else {
+          throw new \Exception('Pas de fichier de config');
+        }
+
+
+
         self::$_instance = new PDO("mysql:host=$config[host];dbname=$config[db];charset=utf8", $config['user'], $config['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
       } catch(Exception $e) {
         die($e->getMessage());

@@ -7,14 +7,14 @@ $config = parse_ini_file("src/Config/config.ini");
 	die;
 }
 
-$user = $config['user'];
-$pass = $config['pass'];
-$db = $config['db'];
-$host = $config['host'];
-
 $query = file_get_contents("sql.sql");
 
-$stmt = $db->prepare($query);
+
+
+require 'src/Classes/DB.php';
+$bdd = App\Classes\DB::getInstance();
+
+$stmt = $bdd->prepare($query);
 
 if ($stmt->execute())
      echo "Succes";
