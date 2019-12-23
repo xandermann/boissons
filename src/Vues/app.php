@@ -2,65 +2,7 @@
 <html lang="fr">
 <head>
 	<title><?= $titre ?></title>
-	<style>
-		html, body {
-			margin: 0;
-		}
-		nav {
-			margin-bottom: 100px;
-			border-top: 10px solid #2196f3;
-			background-color: #6ec6ff;
-			padding: 3px 0;
-		}
-		nav ul {
-			display: flex;
-			justify-content: space-around;
-			list-style-type: none
-		}
-		nav ul li a {
-			box-sizing: border-box;
-			padding: 17px;
-			border: 1px solid black;
-			color: black;
-		}
-
-		.box {
-			border: 1px solid black;
-			margin: 10px 0;
-		}
-
-		input {
-			display: block;
-			text-align: center;
-			margin: 0 auto;
-		}
-
-		label {
-			display: block;
-			text-align: center;
-			border-bottom: 5px;
-		}
-
-		.succes {
-			background-color: green;
-		}
-
-		.erreur {
-			background-color: red;
-		}
-
-		.contenu {
-			border: 1px solid black;
-			margin: 0 auto;
-			width: 1000px;
-		}
-
-		.contenu img {
-			max-width: 300px;
-			display: inline;
-			margin: 0 auto;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
