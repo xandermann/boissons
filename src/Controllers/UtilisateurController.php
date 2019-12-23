@@ -134,7 +134,7 @@ class UtilisateurController extends Controller {
 
 		$telephone = $_POST['telephone'] ?? null;
 		if($telephone) {
-			if(!preg_match('/^[0-9]{10}$/', $code_postal)) {
+			if(!preg_match('/^[0-9]{10}$/', $telephone)) {
 				Flash::ajouterErreur('telephone', 'Telephone invalide (10 chiffres)');
 				$is_erreur = true;
 			}
@@ -252,11 +252,14 @@ class UtilisateurController extends Controller {
 		$req = $bdd->prepare('select * from utilisateurs where id=? limit 1');
 		$req->execute([$connecte]);
 
+
 		$utilisateur = $req->fetchAll();
 
 		if(empty($utilisateur)) {
 			$this->redirect('accueil', $this->ERREUR, 'Erreur');
 		}
+
+		$utilisateur = $utilisateur[0];
 
 		$this->render('voir_utilisateur', compact('utilisateur'));
 	}
@@ -329,14 +332,6 @@ class UtilisateurController extends Controller {
 			}
 		}
 
-		$naissance = $_POST['naissance'] ?? null;
-		if($naissance) {
-			if(!preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/', $naissance)) {
-				Flash::ajouterErreur('naissance', 'Le format de la date de naissance est incorrecte');
-				$is_erreur = true;
-			}
-		}
-
 		$adresse = $_POST['adresse'] ?? null;
 		if($adresse) {
 			if(strlen($adresse) > 60) {
@@ -363,10 +358,14 @@ class UtilisateurController extends Controller {
 
 		$telephone = $_POST['telephone'] ?? null;
 		if($telephone) {
-			if(!preg_match('/^[0-9]{10}$/', $code_postal)) {
+			if(!preg_match('/^[0-9]{10}$/', $telephone)) {
 				Flash::ajouterErreur('telephone', 'Telephone invalide (10 chiffres)');
 				$is_erreur = true;
 			}
+		}
+
+		if($is_erreur) {
+			$this->redirect(null);
 		}
 
 		$bdd = DB::getInstance();
