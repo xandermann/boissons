@@ -28,7 +28,7 @@ class Flash {
 
 			$_SESSION['flash']['age']++;
 
-			if($_SESSION['flash']['age'] > 1) {
+			if($_SESSION['flash']['age'] >= 1) {
 				unset($_SESSION['flash']);
 			}
 		}
@@ -37,7 +37,7 @@ class Flash {
 		foreach($_SESSION['flash'] ?? [] as $message => $flash) {
 			$_SESSION['flash'][$message]['age']++;
 
-			if($_SESSION['flash'][$message]['age'] > 1) {
+			if($_SESSION['flash'][$message]['age'] >= 1) {
 				unset($_SESSION['flash'][$message]);
 			}
 		}
