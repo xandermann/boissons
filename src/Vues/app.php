@@ -6,18 +6,22 @@
 </head>
 <body>
 
+	<?php
+	$page = $_GET['page'] ?? '';
+	?>
+
 	<nav>
 		<ul>
-			<li><a class="active" href="index.php?page=accueil">Accueil</a></li>
-			<li><a href="index.php?page=recette">Mes recettes preferees</a></li>
-			<li><a href="index.php?page=recherche">Rechercher</a></li>
+			<li><a <?php if($page == 'accueil') { ?>class="active"<?php } ?> href="index.php?page=accueil">Accueil</a></li>
+			<li><a <?php if($page == 'recette') { ?>class="active"<?php } ?> href="index.php?page=recette">Mes recettes preferees</a></li>
+			<li><a <?php if($page == 'recherche') { ?>class="active"<?php } ?> href="index.php?page=recherche">Rechercher</a></li>
 
 			<?php if (!isset($_SESSION['utilisateur_id'])){ ?>
-				<li class="right"><a href="index.php?page=inscription">Inscription</a></li>
-				<li class="right"><a href="index.php?page=connexion">Connexion</a></li>
+				<li class="right"><a <?php if($page == 'inscription') { ?>class="active"<?php } ?> href="index.php?page=inscription">Inscription</a></li>
+				<li class="right"><a <?php if($page == 'connexion') { ?>class="active"<?php } ?> href="index.php?page=connexion">Connexion</a></li>
 			<?php } else{ ?>
-				<li class="right"><a href="?page=se_deconnecter">Deconnexion</a></li>
-				<li class="right"><a href="?page=voir_utilisateur"><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
+				<li class="right"><a <?php if($page == 'se_deconnecter') { ?>class="active"<?php } ?> href="?page=se_deconnecter">Deconnexion</a></li>
+				<li class="right"><a <?php if($page == 'voir_utilisateur') { ?>class="active"<?php } ?> href="?page=voir_utilisateur"><?= $_SESSION['utilisateur_pseudo'] ?></a></li>
 			<?php } ?>
 		</ul>
 	</nav>
