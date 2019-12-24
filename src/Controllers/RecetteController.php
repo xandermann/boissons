@@ -75,7 +75,7 @@ class RecetteController extends Controller {
 
 		$id = $_GET['id'];
 
-		$recette = $Recettes[$id] ?? $this->redirect('accueil', $this->ERREUR, 'Pas de recettes existantes');
+		$recette = $Recettes[$id] ?? $this->redirect('accueil', $this->ERREUR, 'Pas de recettes existantes.');
 
 		$this->render('voir_recette', compact('recette', 'id'));
 

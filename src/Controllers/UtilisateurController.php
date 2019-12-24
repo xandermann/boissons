@@ -102,7 +102,7 @@ class UtilisateurController extends Controller {
 
 		$naissance = $_POST['naissance'] ?? null;
 		if($naissance) {
-			if(!preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/', $naissance)) {
+			if(!preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/', $naissance) || strtotime($naissance) > time()) {
 				Flash::ajouterErreur('naissance', 'Le format de la date de naissance est incorrecte');
 				$is_erreur = true;
 			}
@@ -326,8 +326,9 @@ class UtilisateurController extends Controller {
 		}
 
 		$naissance = $_POST['naissance'] ?? null;
+
 		if($naissance) {
-			if(!preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/', $naissance)) {
+			if(!preg_match('/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/', $naissance) || strtotime($naissance) > time()) {
 				Flash::ajouterErreur('naissance', 'Le format de la date de naissance est incorrecte');
 				$is_erreur = true;
 			}

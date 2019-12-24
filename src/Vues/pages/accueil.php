@@ -1,6 +1,6 @@
 <h1><?= $categorie ?></h1>
 
-<p>Chemin: <?= $chemin ?></p>
+<p class="chemin">Chemin: <?= $chemin ?></p>
 
 <?php if(array_key_exists('super-categorie', $hierarchie)): ?>
 	<div class="box">

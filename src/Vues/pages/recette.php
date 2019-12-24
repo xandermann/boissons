@@ -18,6 +18,6 @@
 
 <?php } else { ?>
 
-	<h3>Pas de recette preferees :(</h3>
+	<h3>Pas de recette preferées :(</h3>
 
 <?php } ?>
