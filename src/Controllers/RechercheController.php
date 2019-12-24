@@ -26,7 +26,7 @@ class RechercheController extends Controller {
 
 	public function rechercher() {
 		require('../src/Modeles/Donnees.inc.php');
-		//header('Content-Type: application/json');
+		header('Content-Type: application/json');
 
 		$recherche = $_GET['q'] ?? '';
 		$ingredientsDansLarecherche = explode(",", $recherche);
