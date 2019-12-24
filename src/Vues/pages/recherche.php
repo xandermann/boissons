@@ -63,7 +63,10 @@
 		document.querySelector('#tags').innerHTML = html
 
 		document.querySelectorAll('.tag').forEach(tag => {
-			tag.addEventListener('click', function(event) {
+
+			// BUG ICI, on aimerait ajouter encore l'evenement 'click aux nouveaux'
+
+			let supprimer = function(event) {
 
 				tags = tags.filter(el => el != event.target.innerHTML)
 
@@ -73,7 +76,9 @@
 				document.querySelector('#tags').innerHTML = html
 				rechercher()
 
-			})
+			}
+
+			tag.addEventListener('click', supprimer)
 		})
 
 
