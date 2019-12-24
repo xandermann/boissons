@@ -159,5 +159,11 @@
 			})
 		}
 
-		autocomplete(document.querySelector('#recherche'), <?= '["' . implode('", "', $ingredients) . '"]' ?>)
+		let donnees = <?= '["' . implode('", "', $ingredients) . '"]' ?>
+
+		let donneesPas = donnees.map(donnee => "Pas de " + donnee.toLowerCase())
+
+		donnees = donnees.concat(donneesPas)
+
+		autocomplete(document.querySelector('#recherche'), donneesPas)
 	</script>
