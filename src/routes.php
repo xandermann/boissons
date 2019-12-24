@@ -68,7 +68,13 @@ switch($page) {
 
 	// 404
 	default:
-		echo 'Page 404, aucune page trouvée';
+		$titre = '404';
+
+		ob_start();
+		require("../src/Vues/pages/404.php");
+		$content = ob_get_clean();
+
+		require('../src/Vues/app.php');
 		break;
 }
 
