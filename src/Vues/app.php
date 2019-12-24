@@ -26,7 +26,7 @@
 		</ul>
 	</nav>
 
-	<?php \App\Classes\Flash::creer(0, 'Un message flash random'); ?>
+	<?php // \App\Classes\Flash::creer(0, 'Un message flash random'); ?>
 
 	<?php // Message flash ?>
 	<?php if (($_SESSION['flash'][0]['status'] ?? false) == 'succes'): ?>
