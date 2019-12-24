@@ -1,10 +1,15 @@
 html, body {
 	margin: 0;
+	font-family: sans-serif;
 }
 
 .box {
 	border: 1px solid black;
 	margin: 10px 0;
+}
+
+.contenu a, .contenu a:visited {
+	color: black;
 }
 
 /* ============= FORMULAIRE ============ */
@@ -30,9 +35,9 @@ nav ul li a {
 
 nav ul li a:hover:not(.active) {background-color: #111;}
 nav ul li a.active {background-color: #4CAF50;}
-nav ul li.right {float: right;}
+nav ul li.droite {float: right;}
 @media screen and (max-width: 600px) {
-  nav ul li.right,
+  nav ul li.droite,
   nav ul li {float: none;}
 }
 
@@ -61,7 +66,8 @@ label {
 .contenu {
 	border: 1px solid black;
 	margin: 0 auto;
-	width: 1000px;
+	width: 90%;
+	max-width: 800px;
 	margin-bottom: 100px;
 }
 
