@@ -67,11 +67,9 @@
 			<?php
 			$file = str_replace(" ", "_", "Photos/$recette[titre].jpg");
 
-			if(file_exists($file)) { ?>
+			if(file_exists($file)) : ?>
 				<img src="<?= $file ?>" alt="<?= $recette['titre'] ?>">
-			<?php } else { ?>
-				<div style="text-align: center;">La tête de Louis lorsqu'il a bu ce cocktail : <img src="Photos/louis.jpg" alt=""></div>
-			<?php } ?>
+			<?php endif ?>
 
 			<hr>
 		<?php endforeach ?>
