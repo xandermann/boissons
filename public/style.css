@@ -3,6 +3,10 @@ html, body {
 	font-family: sans-serif;
 }
 
+::selection {
+	background-color: #b3d4fc;
+}
+
 .chemin {
 	text-align: right;
 	margin-right: 20px;
@@ -15,10 +19,10 @@ html, body {
 }
 
 .contenu a, .contenu a:visited {
-	color: black;
+	color: #3599EA;
 }
 
-h1 {
+h1, h3 {
 	text-align: center;
 }
 
@@ -45,7 +49,7 @@ nav ul li a {
 }
 
 nav ul li a:hover:not(.active) {background-color: #111;}
-nav ul li a.active {background-color: #4CAF50;}
+nav ul li a.active {background-color: #3599EA;}
 nav ul li.droite {float: right;}
 @media screen and (max-width: 600px) {
 	nav ul li.droite,
@@ -98,6 +102,8 @@ label {
 	max-width: 300px;
 	display: inline;
 	margin: 0 auto;
+	border: 1px solid black;
+	text-align: center;
 }
 
 form {
@@ -127,7 +133,7 @@ input[type=text] {
 }
 input[type=submit] {
 	color: white;
-	background-color: #4CAF50;
+	background-color: #3599EA;
 	margin-top: 15px;
 }
 .autocomplete-items {
@@ -150,7 +156,7 @@ input[type=submit] {
 	background-color: #e9e9e9;
 }
 .autocomplete-active {
-	background-color: #4CAF50 !important;
+	background-color: #3599EA !important;
 	color: #ffffff;
 }
 
