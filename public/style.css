@@ -66,41 +66,41 @@ form {
 	display: inline-block;
 }
 input {
-	border: 1px solid transparent;
-	background-color: #f1f1f1;
-	padding: 10px;
 	font-size: 16px;
+	border: 1px solid transparent;
+	padding: 10px;
+	background-color: #f1f1f1;
 }
 input[type=text] {
-	background-color: #f1f1f1;
 	margin: 0 auto;
+	background-color: #f1f1f1;
 }
 input[type=submit] {
+	color: white;
 	background-color: DodgerBlue;
-	color: #fff;
 }
 .autocomplete-items {
 	border: 1px solid #d4d4d4;
+	position: absolute;
 	border-bottom: none;
 	z-index: 99;
+	border-top: none;
 	top: 100%;
 	right: 0;
 	left: 0;
-	border-top: none;
-	position: absolute;
 }
 .autocomplete-items div {
-	background-color: white;
-	cursor: pointer;
-	border-bottom: 1px solid #d4d4d4;
 	padding: 10px;
+	cursor: pointer;
+	background-color: white;
+	border-bottom: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
 	background-color: #e9e9e9;
 }
 .autocomplete-active {
-	background-color: DodgerBlue;
-	color: white;
+	background-color: DodgerBlue !important;
+	color: #ffffff;
 }
 
 #tags li {
