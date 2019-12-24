@@ -39,7 +39,7 @@
 			<?php foreach($hierarchie['sous-categorie'] as $id => $sousCategorie): ?>
 				<li>
 					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $sousCategorie) ?>&chemin=<?= $chemin ?>/<?= $sousCategorie ?>">
-						<?= $id ?> - <?= $sousCategorie ?>
+						<?= $sousCategorie ?>
 					</a>
 				</li>
 			<?php endforeach ?>
