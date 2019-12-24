@@ -165,5 +165,5 @@
 
 		donnees = donnees.concat(donneesPas)
 
-		autocomplete(document.querySelector('#recherche'), donneesPas)
+		autocomplete(document.querySelector('#recherche'), donnees)
 	</script>
