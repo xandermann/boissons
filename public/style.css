@@ -1,28 +1,42 @@
 html, body {
 	margin: 0;
 }
-nav {
-	margin-bottom: 100px;
-	border-top: 10px solid #2196f3;
-	background-color: #6ec6ff;
-	padding: 3px 0;
-}
-nav ul {
-	display: flex;
-	justify-content: space-around;
-	list-style-type: none
-}
-nav ul li a {
-	box-sizing: border-box;
-	padding: 17px;
-	border: 1px solid black;
-	color: black;
-}
 
 .box {
 	border: 1px solid black;
 	margin: 10px 0;
 }
+
+/* ============= FORMULAIRE ============ */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  margin-bottom: 100px;
+}
+
+nav ul li {float: left;}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover:not(.active) {background-color: #111;}
+nav ul li a.active {background-color: #4CAF50;}
+nav ul li.right {float: right;}
+@media screen and (max-width: 600px) {
+  nav ul li.right,
+  nav ul li {float: none;}
+}
+
+/* ============= */
 
 input {
 	display: block;
