@@ -42,14 +42,14 @@
 	}
 
 
-
 	let tags = []
-	document.querySelector('#ajouter').addEventListener('click', function(event) {
+
+	let ajouter = function(event) {
 		event.preventDefault();
 
 		let input = document.querySelector('#recherche')
 
-		if (tags.indexOf(input.value) == -1) {
+		if (recherche.value != "" && tags.indexOf(input.value) == -1) {
 			tags.push(recherche.value)
 		}
 
@@ -77,6 +77,13 @@
 		})
 
 
+	}
+
+	document.querySelector('#ajouter').addEventListener('click', ajouter)
+	document.querySelector('#recherche').addEventListener('keyup', function(event) {
+		if(event.keyCode == 13) { // Bouton entre
+			ajouter(event)
+		}
 	})
 
 
@@ -150,8 +157,6 @@
 			}
 			document.addEventListener("click", function (e) {
 				closeAllLists(e.target)
-	 			//rechercher()
-	 			console.log('click')
 	 		})
 		}
 
