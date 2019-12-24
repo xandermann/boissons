@@ -14,7 +14,7 @@
 
 <hr>
 
-<h2>Votre recherche</h2>
+<h2>Resultat de la recherche</h2>
 <div id="affichage"></div>
 
 
@@ -93,14 +93,6 @@
 		}
 	})
 
-
-
-
-
-
-
-
-
 	function autocomplete(champsDeRecherche, arr) {
 		var elementCourant
 		champsDeRecherche.addEventListener("input", function(e) {
@@ -164,7 +156,7 @@
 			}
 			document.addEventListener("click", function (e) {
 				fermerToutesLesListes(e.target)
-	 		})
+			})
 		}
 
 		autocomplete(document.querySelector('#recherche'), <?= '["' . implode('", "', $ingredients) . '"]' ?>)

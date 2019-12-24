@@ -1,16 +1,17 @@
 HUBLAU Alexandre
 MATUCHET Louis
 
-# TODO
-* Ajouter les recettes quand l'utilisateur se connecte
-* Designer - Faire moteur de recherche
-
 # Projet Boisson Programmation web S5, 2019-2020
 
 [https://boissons.alexandre-hublau.com](https://boissons.alexandre-hublau.com)
 
-Nous utiliserons le micro-framework Slim pour ce qui est de la partie routage.
-Tout le reste est entièrement codé par nos soins, il n'y aura donc pas d'utilisation de framework faisant tout le travail à notre place.
+# Avant de lancer le projet
+
+Initialiser la base de données:
+Merci de creer un fichier de configuration dans **src/Config/config.ini**.
+Un exemple de configuration est fourni dans **src/Config/config-exemple.ini**.
+
+Nous n'utilisons pas de framework pour ce projet.
 
 ## L'arborescence se fait de cette manière :
 	- dossier "src" avec toutes les sources php.
@@ -33,7 +34,7 @@ Pas de base de données car pas obligatoire et surtout évitable pour les boisso
 On a utiliser un autoloader (une fonction du psr-4) pour ne pas à faire 50 *require()* et *include()* dans chaque classe.
 La fonction est utilisée ici: [https://www.php-fig.org/psr/psr-4/examples/](https://www.php-fig.org/psr/psr-4/examples/)
 
-Les mots de passe sont chiffrés
+Les mots de passe sont chiffrés avec le mode **bcrypt**.
 
 Lorsque les utilisateurs choisissent des recettes:
 * Si l'utilisateur n'est pas connecté, alors les recettes sont sauvegardées dans la session
@@ -42,6 +43,5 @@ Lorsque les utilisateurs choisissent des recettes:
 	* Si l'utilisateur connecté supprime les recettes, alors elles sont supprimées de son compte et sa session
 	* Si l'utilisateur non connecté supprime les recettes, alors elles sont supprimées de sa session
 
-## Ajouts
-
-* Nous avons ajouté les messages flash pour prévenir l'utilisateur s'il a fait une action.
+Nous avons ajouté les messages flash pour prévenir l'utilisateur s'il a fait une action.
+(Ce sont des messages qui apparaissent que pendant le chargement d'une seule page)
