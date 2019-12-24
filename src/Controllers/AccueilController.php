@@ -16,10 +16,18 @@ class AccueilController extends Controller {
 
 		// Il faut tester la valeur chemin
 		$chemin = $_GET['chemin'] ?? 'Aliment';
+		$parties = explode('/', $chemin);
+
+		foreach($parties as $partie) {
+			if (!($partie == 'Aliment' || isset($Hierarchie[$partie]))) {
+				$this->redirect('accueil', $this->ERREUR, 'Le chemin est invalide !');
+			}
+		}
 
 		$recettes = array_filter($Recettes, function($recette) use ($categorie) {
 			return in_array($categorie, $recette['index']);
 		}); // On va trier les recettes ici
+
 
 		return $this->render('accueil', compact('categorie', 'hierarchie', 'recettes', 'chemin'));
 	}
