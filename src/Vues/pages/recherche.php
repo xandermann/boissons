@@ -9,24 +9,26 @@
 	<input type="submit" value="Ajouter" id="ajouter">
 </form>
 
+<p>Tags:</p>
+<ul id="tags"></ul>
+
+<hr>
+
+<h2>Votre recherche</h2>
 <div id="affichage"></div>
 
-<ul id="tags"></ul>
 
 <script>
 
-	/**
-	 * Fonction qui fait l'ajax et qui affiche les aliments trouvés
-	 * @param  {[type]} inputElement [description]
-	 * @return {[type]}              [description]
-	 */
-	let afficherAliments = (inputElement) => {
-		if(!inputElement.value) {
-			document.querySelector('#affichage').innerHTML = ''
-			return 0
-		}
+	let rechercher = () => {
+		let inputElement = document.querySelector('#recherche').value
 
-		let recherche = fetch('index.php?page=rechercher&q=' + inputElement.value)
+		// Cree la recherche => aliment,aliment2,aliment3
+		let chaineRecherche = ""
+		tags.forEach(tag => chaineRecherche += (tag + ","))
+		chaineRecherche = chaineRecherche.slice(0, -1)
+
+		let recherche = fetch('index.php?page=rechercher&q=' + chaineRecherche)
 		.then(response => response.json())
 		.then(json => {
 
@@ -39,22 +41,40 @@
 		})
 	}
 
-	document.querySelector('#recherche').addEventListener('keyup', event => {
-		afficherAliments(event.target)
-	})
-
 
 
 	let tags = []
 	document.querySelector('#ajouter').addEventListener('click', function(event) {
 		event.preventDefault();
 
-		let recherche = document.querySelector('#recherche')
-		tags.push(recherche.value)
+		let input = document.querySelector('#recherche')
 
-		if (tags.indexOf('Melon') == -1) {
-			tags.push(recherche)
+		if (tags.indexOf(input.value) == -1) {
+			tags.push(recherche.value)
 		}
+
+		rechercher();
+
+		input.value = ""
+
+		// On affiche
+		let html = ""
+		tags.forEach(el => html += "<li class='tag'>" + el + "</li>")
+		document.querySelector('#tags').innerHTML = html
+
+		document.querySelectorAll('.tag').forEach(tag => {
+			tag.addEventListener('click', function(event) {
+
+				tags = tags.filter(el => el != event.target.innerHTML)
+
+				// On reaffiche tags
+				let html = ""
+				tags.forEach(el => html += "<li class='tag'>" + el + "</li>")
+				document.querySelector('#tags').innerHTML = html
+				rechercher()
+
+			})
+		})
 
 
 	})
@@ -130,8 +150,9 @@
 			}
 			document.addEventListener("click", function (e) {
 				closeAllLists(e.target)
-				afficherAliments(document.querySelector('#recherche'))
-			})
+	 			//rechercher()
+	 			console.log('click')
+	 		})
 		}
 
 		autocomplete(document.querySelector('#recherche'), <?= '["' . implode('", "', $ingredients) . '"]' ?>)

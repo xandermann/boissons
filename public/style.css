@@ -56,11 +56,11 @@ label {
 	margin: 0 auto;
 }
 
-/* ===================== */
-* { box-sizing: border-box; }
-body {
-	font: 16px Arial;
+form {
+	text-align: center;
 }
+
+/* ===================== */
 .autocomplete {
 	position: relative;
 	display: inline-block;
@@ -73,7 +73,7 @@ input {
 }
 input[type=text] {
 	background-color: #f1f1f1;
-	width: 100%;
+	margin: 0 auto;
 }
 input[type=submit] {
 	background-color: DodgerBlue;
@@ -101,4 +101,10 @@ input[type=submit] {
 .autocomplete-active {
 	background-color: DodgerBlue !important;
 	color: #ffffff;
+}
+
+#tags li {
+	display: inline-block;
+	border: 1px solid black;
+	cursor: not-allowed;
 }
