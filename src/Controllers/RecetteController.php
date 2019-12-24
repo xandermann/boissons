@@ -73,11 +73,11 @@ class RecetteController extends Controller {
 		require('../src/Modeles/Donnees.inc.php');
 
 
-		$id = $_GET['id']; // TODO Valider
+		$id = $_GET['id'];
 
-		$recette = $Recettes[$id] ?? die('Aucune recette');
+		$recette = $Recettes[$id] ?? $this->redirect('accueil', $this->ERREUR, 'Pas de recettes existantes');
 
-		$this->render('voir_recette', compact('recette'));
+		$this->render('voir_recette', compact('recette', 'id'));
 
 	}
 

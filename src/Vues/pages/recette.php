@@ -1,13 +1,14 @@
 <h1>Mes recettes preferees</h1>
 
 <?php if(count($recettes) > 0){ ?>
+	<hr>
 	<ul>
 		<?php foreach($recettes as $id => $recette): ?>
 			<li>
 				<h2><?= $recette['titre'] ?></h2>
-				<p><a href="index.php?page=supprimer_recette&id=<?= $id ?>">Supprimer</a></p>
 				<p><a href="?page=voir_recette&id=<?= $id ?>">Voir la recette <?= $recette['titre'] ?></a></p>
-				<!-- <?= $recette['ingredients'] ?> <?= $recette['preparation'] ?> -->
+				<p><a href="index.php?page=supprimer_recette&id=<?= $id ?>">Supprimer</a></p>
+				<p><hr></p>
 			</li>
 		<?php endforeach ?>
 	</ul>
