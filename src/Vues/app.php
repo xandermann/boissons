@@ -26,13 +26,15 @@
 		</ul>
 	</nav>
 
+	<?php \App\Classes\Flash::creer(0, 'Un message flash random'); ?>
+
 	<?php // Message flash ?>
 	<?php if (($_SESSION['flash'][0]['status'] ?? false) == 'succes'): ?>
-		<div class="succes"><?= $_SESSION['flash'][0]['message'] ?></div>
+		<div class="flash succes"><?= $_SESSION['flash'][0]['message'] ?></div>
 	<?php endif ?>
 
 	<?php if (($_SESSION['flash'][0]['status'] ?? false) == 'erreur'): ?>
-		<div class="erreur"><?= $_SESSION['flash'][0]['message'] ?></div>
+		<div class="flash erreur"><?= $_SESSION['flash'][0]['message'] ?></div>
 	<?php endif ?>
 
 	<div class="contenu">

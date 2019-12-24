@@ -9,7 +9,6 @@
 	<input type="submit" value="Ajouter" id="ajouter">
 </form>
 
-<p>Tags:</p>
 <ul id="tags"></ul>
 
 <hr>
@@ -32,10 +31,11 @@
 		.then(response => response.json())
 		.then(json => {
 
-			let html = "<ul>"
+			let html = "<ul class='recherche_parent'>"
 			Object.keys(json).forEach(j => {
-				html += "<li><a href='index.php?page=voir_recette&id=" + j + "'>" + json[j] + "</a></li>"
+				html += "<li class='recherche'><a href='index.php?page=voir_recette&id=" + j + "'>" + json[j] + "</a></li>"
 			})
+			html += "</ul>"
 
 			document.querySelector('#affichage').innerHTML = html
 		})
@@ -59,7 +59,7 @@
 
 		// On affiche
 		let html = ""
-		tags.forEach(el => html += "<li class='tag'>" + el + "</li>")
+		tags.forEach(el => html += "<li title='Cliquer pour supprimer le tag' class='tag'>" + el + "</li>")
 		document.querySelector('#tags').innerHTML = html
 
 		document.querySelectorAll('.tag').forEach(tag => {
@@ -70,7 +70,7 @@
 
 				// On reaffiche tags
 				let html = ""
-				tags.forEach(el => html += "<li class='tag'>" + el + "</li>")
+				tags.forEach(el => html += "<li title='Cliquer pour supprimer le tag' class='tag'>" + el + "</li>")
 				document.querySelector('#tags').innerHTML = html
 				rechercher()
 
