@@ -39,7 +39,8 @@ class Controller {
 			// Ajouter status et message
 			header("Location: ?page=$lien");
 		} else {
-			header("Location: $_SERVER[HTTP_REFERER]");
+			$url = $_SERVER['HTTP_REFERER'] ?? '?page=accueil';
+			header("Location: $url");
 		}
 		die;
 	}

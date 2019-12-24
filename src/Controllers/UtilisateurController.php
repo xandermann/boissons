@@ -86,7 +86,7 @@ class UtilisateurController extends Controller {
 
 		$mail = $_POST['mail'] ?? null;
 		if($mail) {
-			if(!preg_match('/^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$/', $mail)) {
+			if(!preg_match('/^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$/', $mail) || strlen($mail) > 100) {
 				Flash::ajouterErreur('mail', 'Le format du mail est incorrect');
 				$is_erreur = true;
 			}
@@ -319,7 +319,7 @@ class UtilisateurController extends Controller {
 
 		$mail = $_POST['mail'] ?? null;
 		if($mail) {
-			if(!preg_match('/^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$/', $mail)) {
+			if(!preg_match('/^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$/', $mail) || strlen($mail) >= 100) {
 				Flash::ajouterErreur('mail', 'Le format du mail est incorrect');
 				$is_erreur = true;
 			}
