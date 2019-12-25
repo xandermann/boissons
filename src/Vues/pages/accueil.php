@@ -19,7 +19,7 @@
 
 					$lien = substr($ret, 0, -1);;
 					?>
-					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>&chemin=<?= $lien ?>">
+					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $superCategorie) ?>&chemin=<?= rawurlencode($lien) ?>">
 						<?= $superCategorie ?>
 					</a>
 				</li>
@@ -38,7 +38,7 @@
 		<ul>
 			<?php foreach($hierarchie['sous-categorie'] as $id => $sousCategorie): ?>
 				<li>
-					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $sousCategorie) ?>&chemin=<?= $chemin ?>/<?= $sousCategorie ?>">
+					<a href="index.php?page=accueil&categorie=<?= str_replace(" ", "_", $sousCategorie) ?>&chemin=<?= rawurlencode($chemin) ?>/<?= rawurlencode($sousCategorie) ?>">
 						<?= $sousCategorie ?>
 					</a>
 				</li>
