@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 1);
 
@@ -44,10 +46,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-?>
+require('../src/routes.php');
 
-<?php session_start() ?>
-<?php require('../src/routes.php') ?>
+App\Classes\Flash::incrementer();
 
-
-<?php App\Classes\Flash::incrementer() ?>

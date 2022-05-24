@@ -28,7 +28,7 @@ class RecetteController extends Controller {
 			$_SESSION['recettes'] = [];
 		}
 
-		if ($_SESSION['utilisateur_id']) { // On ajoute dans la table si l'utilisateur est connecté
+		if (isset($_SESSION['utilisateur_id'])) { // On ajoute dans la table si l'utilisateur est connecté
 			$bdd = DB::getInstance();
 			$req = $bdd->prepare('INSERT INTO recettes(id, utilisateur_id) VALUES (?, ?)');
 			$req->execute([$id, $_SESSION['utilisateur_id']]);
@@ -48,7 +48,7 @@ class RecetteController extends Controller {
 			return $recette != $id;
 		});
 
-		if ($_SESSION['utilisateur_id']) {
+		if (isset($_SESSION['utilisateur_id'])) {
 			$bdd = DB::getInstance();
 			$req = $bdd->prepare('DELETE FROM recettes WHERE id=? AND utilisateur_id=?');
 			$req->execute([$id,$_SESSION['utilisateur_id']]);
@@ -60,7 +60,7 @@ class RecetteController extends Controller {
 	public function supprimerTout() {
 		$_SESSION['recettes'] = [];
 
-		if ($_SESSION['utilisateur_id']) {
+		if (isset($_SESSION['utilisateur_id'])) {
 			$bdd = DB::getInstance();
 			$req = $bdd->prepare('DELETE FROM recettes WHERE utilisateur_id=?');
 			$req->execute([$_SESSION['utilisateur_id']]);
